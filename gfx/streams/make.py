@@ -35,6 +35,15 @@ for name, text in (("banner_clear", "CLEAR!"), ("banner_start", "START!"), ("ban
     stamp(img, m, (w / 2, h / 2), [(BLACK, 1), (RED, 0)])
     img.save(HERE / f"{name}.png")
 
+# --- story-stage "STAGE CLEAR!" banner (uncompressed sprites): orange box, red + black
+ORANGE, SC_RED = (243, 178, 62), (234, 51, 35)
+img = load("stage_clear")
+w, h = img.size
+img.paste(ORANGE, (3, 2, w - 3, h - 2))
+m = fit(ttf_mask("STAGE CLEAR!", "Impact.ttf", 13, tracking=0), w - 8, "stage clear")
+stamp(img, m, (w / 2, h / 2), [(BLACK, 1), (SC_RED, 0)])
+img.save(HERE / "stage_clear.png")
+
 # --- race result sprites: red box, light-blue text with black outline
 for name, text in (("race_win", "WIN!"), ("race_lose", "LOSE")):
     img = load(name)

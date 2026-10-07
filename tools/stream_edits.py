@@ -55,6 +55,12 @@ REGIONS = {
 _END_MAP = 0x23750
 REGIONS["owari"] = dict(stream=0x1052D, base=0x00, mode="bg", layout=None, endmap=True,
                         pal=("greys", None, 0))
+# Uncompressed: the story-stage "ステージクリア" banner, 10 sprites (8x16) at ROM 0x13DA5
+# (bank 4, copied to tile $6C by $00:203C). Indices: 0 transparent, 1 black, 2 red, 3 orange.
+REGIONS["stage_clear"] = dict(raw=0x13DA5, length=0x140, base=0x00, mode="obj16",
+                              layout=[_rows(0x00, 10, 2)], pal=("fixed", "stage_clear", 0))
+FIXED_PALS = {"stage_clear": [(0, 248, 0), (0, 0, 0), (234, 51, 35), (243, 178, 62)]}
+
 # result pictures 4-11 (bank $19): text cells of each picture's own tilemap
 for _k in range(4, 12):
     REGIONS[f"picture{_k}"] = dict(picture=_k, base=0x00, mode="bg", layout=None,
@@ -97,6 +103,8 @@ def _palette(spec):
     scene, kind, n = spec["pal"]
     if scene == "greys":
         return GREYS
+    if scene == "fixed":
+        return FIXED_PALS[kind]
     return _pal(CAPTURED[scene][kind], n)
 
 
@@ -181,7 +189,10 @@ def encode(img, buf, spec, layout):
 def export_originals(rom):
     ART.mkdir(parents=True, exist_ok=True)
     for name, spec in REGIONS.items():
-        buf, _, _ = decompress(rom, _stream_of(rom, spec))
+        if "raw" in spec:
+            buf = rom[spec["raw"]:spec["raw"] + spec["length"]]
+        else:
+            buf, _, _ = decompress(rom, _stream_of(rom, spec))
         render(buf, spec, _layout(rom, spec)).save(ART / f"{name}.orig.png")
 
 
@@ -202,6 +213,13 @@ def apply(rom, alloc, log=print):
     for name, spec in REGIONS.items():
         png = ART / f"{name}.png"
         if not png.exists():
+            continue
+        if "raw" in spec:                      # uncompressed: repaint in place
+            o, n = spec["raw"], spec["length"]
+            buf = bytearray(rom[o:o + n])
+            encode(Image.open(png), buf, spec, _layout(rom, spec))
+            rom[o:o + n] = buf
+            log(f"[gfx] raw {o:#07x} ({name}) repainted in place")
             continue
         off = _stream_of(rom, spec)
         if off not in streams:

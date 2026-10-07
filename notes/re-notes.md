@@ -95,6 +95,10 @@ Free banks (all `$FF`): 9–13, 21, 32–63.
   `$FF98 = $0A` is the ending: cast roll (raw maps `0x23510`/`0x23990`) then "THE END"
   (raw maps `0x23750`/`0x23BD0`, tiles from list `0x1435`).
 - "Game Boy Color only" screen: list `0x1420`, DMG mode (no attribute map).
+- Story-stage "ステージクリア" banner: **uncompressed** 10 × 8x16 sprites at ROM `0x13DA5`
+  (bank 4), copied to tile `$6C` by `$00:203C`, which also sets the stage-cleared flag
+  `$CBF3 + stage`. Not covered by the LZSS sweep; found from a player screenshot. A scan of
+  every ROM→WRAM graphics copy (`$19A5` / `$1EFB` / `$1F1E` callers) found no other raw text.
 
 ## Graphics status
 All Japanese graphics found by the sweep of the 166 compressed streams and by in-game
