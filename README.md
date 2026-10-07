@@ -160,4 +160,10 @@ section of the justfile).
 - Tools: [Flips](https://github.com/Alcaro/Flips), [mgbdis](https://github.com/mattcurrie/mgbdis),
   [RGBDS](https://rgbds.gbdev.io/), [PyBoy](https://github.com/Baekalfen/PyBoy).
 
+## License
+
+The tools, scripts, documentation and English translation are [MIT-licensed](LICENSE). Material
+from the original game (Japanese script, original artwork, screenshots) is not covered and belongs
+to its rights holders.
+
 Distribute the patch files only, never the ROM.
