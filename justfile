@@ -43,3 +43,7 @@ verify: patch
 # side-by-side JP / UK / US review sheet (script/review.md)
 review:
     uv run python tools/review.py
+
+# all-unlocked battery saves (out/thomas-en-{uk,us}.srm) for quick testing in any emulator
+save: build
+    for d in {{dubs}}; do uv run python tools/make_save.py out/thomas-en-$d.gbc out/thomas-en-$d.srm; done
