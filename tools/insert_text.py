@@ -134,18 +134,46 @@ def wrap(text, widths):
     return pages
 
 
+def _fill(words, pattern, widths):
+    """Place words greedily into pages with the given line counts; None if they don't fit."""
+    pages, i = [], 0
+    for n in pattern:
+        page = []
+        for w_max in widths[:n]:
+            line = ""
+            while i < len(words):
+                cand = f"{line} {words[i]}" if line else words[i]
+                if len(cand) > w_max:
+                    break
+                line, i = cand, i + 1
+            if not line:
+                break
+            page.append(line)
+        if not page:
+            return None
+        pages.append(page)
+    return pages if i == len(words) else None
+
+
 def balanced_wrap(text, widths):
-    """Like wrap(), but avoid a lonely last line: for each <PAGE> segment, also try
-    fewer lines per box and keep that layout if it needs no extra boxes."""
+    """Like wrap(), but choose how many lines each box gets (2 or 3) so that no box is left
+    with a single short line, while using as few boxes as possible."""
+    from itertools import product
     pages = []
     for segment in text.split("<PAGE>"):
-        best = wrap(segment, widths)
-        for k in range(len(widths) - 1, 1, -1):
-            if len(best) < 2 or len(best[-1]) > 1:
-                break
-            alt = wrap(segment, widths[:k])
-            if len(alt) == len(best):
-                best = alt
+        if "\n" in segment.strip("\n"):            # explicit line breaks: keep simple wrapping
+            pages += wrap(segment, widths)
+            continue
+        greedy = wrap(segment, widths)
+        words = segment.split()
+        best = greedy
+        if len(greedy) > 1 and len(greedy[-1]) == 1:
+            n = len(greedy)
+            for pattern in sorted(product(range(2, len(widths) + 1), repeat=n), key=lambda p: (-min(p), p)):
+                cand = _fill(words, pattern, widths)
+                if cand and all(len(pg) >= 2 for pg in cand):
+                    best = cand
+                    break
         pages += best
     return pages
 

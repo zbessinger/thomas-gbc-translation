@@ -23,6 +23,9 @@ just review    # script/review.md: JP / UK / US side by side, wrapped as in-game
 - `script/glossary.yaml` — UK/US dub wording (`{fc}` → the Fat Controller / Sir Topham Hatt,
   `{trucks}` → trucks / freight cars …). Inline `{uk|us}` handles one-offs.
 - `gfx/font_en.txt` — editable 8×8 English font.
+- `gfx/screens/*/make.py`, `gfx/streams/make.py` — generate the English artwork (`just gfx`).
+- `tools/dialogue_check.py ROM DIR` — shows every message in the real in-stage box and flags
+  overflow; `tools/explore.py` drives stages/minigames and saves contact sheets.
 - `tools/` — table, dumper, inserter, emulator helpers. `notes/re-notes.md` — ROM internals.
 
 Distribute the patch files only, never the ROM.

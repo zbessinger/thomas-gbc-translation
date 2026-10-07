@@ -76,7 +76,26 @@ Free banks (all `$FF`): 9–13, 21, 32–63.
 - Test unlocks: after the title, set WRAM `$CBF3–$CC3F` to `$FF` (all stages, minigames
   and encyclopedia entries).
 
+## Dialogue boxes
+- Cutscene box (`$C95E = $80`, entry `$12:409A`): BG layer, text from column 2.
+- In-stage portrait box (`$C95E = 0`, entry `$12:406F`): window layer (WY 96), text in
+  columns 7-18, 3 lines; the ▼ arrow sits on columns 18-19 of line 3.
+- The same message can show in either, and the Japanese never exceeds 12 per line, so all
+  dialogue is wrapped 12/12/11. Message 252 ("Starring in this story...") prints in a
+  bottom box at column 4 with only 2 visible lines -> per-message widths [15, 15].
+
+## In-game graphics (tools/stream_edits.py)
+- Minigame/event scenes: asset lists `0x11A1`–`0x1321` (screen IDs 6–13). Shared sprite
+  banners in `0x722EA` (START!/CLEAR!/TIME UP!), HUD tiles at `$91D0` from `0x7258C` (TIME)
+  and `0x72668` (race: TIME/START/GOAL), race WIN!/LOSE in `0x727D4`.
+- Result pictures: `$12:47C6` = 12 × (tiles ptr+bank, 2nd tiles ptr+bank); maps
+  `$10:62E1`, attrs `$10:7095` (2-byte pointers, bank `$10`). 4–7 = "Too bad!",
+  8–11 = "Hooray!". Picture index is WRAM `$C962` (loader `$12:4793`).
+- Screen list table `0x10C7` (index = `[$FF98] + $0B`); scene init jump table at `0x0458`.
+  `$FF98 = $0A` is the ending: cast roll (raw maps `0x23510`/`0x23990`) then "THE END"
+  (raw maps `0x23750`/`0x23BD0`, tiles from list `0x1435`).
+- "Game Boy Color only" screen: list `0x1420`, DMG mode (no attribute map).
+
 ## Graphics status
-- Done: title, main menu, minigame menu (banner + titles), stage select (both pages),
-  encyclopedia (header, 26 plates, page bar).
-- To do: inside the minigames and story stages (signs, HUD text, results screens).
+All Japanese graphics found by the sweep of the 166 compressed streams and by in-game
+exploration are translated.

@@ -9,9 +9,7 @@
   len: 95
   ids: [1]
   jp: トーマス、<NL>たのみたいことが<NL>あるが よいかな?<PAGE>せんしゅうのおおあらしで<NL>ソドーとうのせんろが<NL>こわれてしまった<PAGE>そこで<NL>せんろをなおしてきて<NL>ほしいのだ<END>
-  en: 'Thomas, may I ask
-
-    you a {favour|favor}?<PAGE>Last week''s big storm broke the tracks all over the Island of Sodor.<PAGE>So I''d like you to go and fix them.'
+  en: Thomas, may I ask you a {favour|favor}?<PAGE>Last week's big storm broke the tracks all over the Island of Sodor.<PAGE>So I'd like you to go and fix them.
 - addr: '0x5AB1'
   rom: '0x49AB1'
   len: 49
@@ -65,7 +63,7 @@
   len: 24
   ids: [10]
   jp: ようし!<NL>どんどん<NL>なおしていくぞ<END>
-  en: Right! I'll keep on fixing them!
+  en: Right! I'll keep fixing them!
 - addr: '0x5BE4'
   rom: '0x49BE4'
   len: 49
@@ -426,7 +424,7 @@
   len: 35
   ids: [125]
   jp: わかったよエドワード<NL>パーシーのことは<NL>たのんだよ!!<END>
-  en: All right, Edward! Look after Percy!
+  en: OK, Edward! Look after Percy!
 - addr: '0x65B8'
   rom: '0x4A5B8'
   len: 39
@@ -480,7 +478,7 @@
   len: 40
   ids: [142]
   jp: わかりました<PAGE>たのしみだな、<NL>みなとへいくことが<NL>できるなんて!<END>
-  en: Yes, sir!<PAGE>Hooray! I get to go to the {harbour|harbor}!
+  en: Yes, sir!<PAGE>Hooray! I'm off to the {harbour|harbor}!
 - addr: '0x675A'
   rom: '0x4A75A'
   len: 23
@@ -540,13 +538,13 @@
   len: 30
   ids: [153]
   jp: まかせてください<NL>きっとちからに<NL>なってみせます!<END>
-  en: Leave it to me! I'll be a real help!
+  en: Leave it to me! I'll be a big help!
 - addr: '0x68A9'
   rom: '0x4A8A9'
   len: 43
   ids: [154]
   jp: かしゃに<NL>からかわれないように<NL>するには<PAGE>がつんといってやる<NL>ことだね<END>
-  en: To stop the {trucks} teasing you,<PAGE>you have to be firm with them!
+  en: If the {trucks} tease you,<PAGE>be firm with them!
 - addr: '0x68D4'
   rom: '0x4A8D4'
   len: 42
@@ -624,7 +622,7 @@
   len: 80
   ids: [167, 168, 169, 170, 171]
   jp: こうざんでは あらしの<NL>ひがいがおおきかった<PAGE>せんろがとぎれて<NL>とりのこされた<PAGE>きかんしゃが<NL>いるかもしれん<PAGE>トーマスみてきてくれ<END>
-  en: The storm did a lot of damage on the mountain.<PAGE>The line is cut off there,<PAGE>and an engine may be stranded.<PAGE>Thomas, go and take a look.
+  en: The storm did a lot of damage on the mountain.<PAGE>The line is cut off there,<PAGE>and an engine may be stuck.<PAGE>Thomas, go and take a look.
 - addr: '0x6AD1'
   rom: '0x4AAD1'
   len: 22
@@ -678,7 +676,7 @@
   len: 48
   ids: [182]
   jp: ぼくがきたからには<NL>もうあんしん!<PAGE>きゅうすいとうまで<NL>おしていってあげるよ!<END>
-  en: Don't worry, I'm here now!<PAGE>I'll push you to the water tower!
+  en: Don't worry, I'm here now!<PAGE>I'll push you to get water!
 - addr: '0x6C4A'
   rom: '0x4AC4A'
   len: 33
@@ -900,7 +898,7 @@
   len: 28
   ids: [225]
   jp: ようし、<NL>ディーゼルなんかに<NL>まけるもんか!<END>
-  en: Right! I won't lose to a diesel!
+  en: Right! No diesel can beat me!
 - addr: '0x7226'
   rom: '0x4B226'
   len: 35
@@ -949,6 +947,10 @@
   ids: [252]
   jp: このおはなしの<NL>しゅつえんは・・・<END>
   en: Starring in this story...
+  widths:
+  - 15
+  - 15
+  notes: 'Ending: printed in a bottom box at column 4 where only 2 lines are visible.'
 - addr: '0x7372'
   rom: '0x4B372'
   len: 0

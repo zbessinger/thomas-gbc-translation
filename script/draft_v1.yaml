@@ -2,7 +2,7 @@
 # Tokens: {fc} {trucks} {truck} {mailvan} {crossing}; inline {uk|us}.
 
 # --- Chapter 1: fixing the tracks
-'0x5A52': "Thomas, may I ask\nyou a {favour|favor}?<PAGE>Last week's big storm broke the tracks all over the Island of Sodor.<PAGE>So I'd like you to go and fix them."
+'0x5A52': "Thomas, may I ask you a {favour|favor}?<PAGE>Last week's big storm broke the tracks all over the Island of Sodor.<PAGE>So I'd like you to go and fix them."
 '0x5AB1': "Yes, sir!<PAGE>I'll fix the tracks for everyone on the island!<PAGE>Right, here I go!"
 '0x5AE2': "Off you go, Thomas!"
 '0x5AF6': "Looks like this is a dead end."
@@ -11,7 +11,7 @@
 '0x5B53': "Right, Thomas, let's mend this broken track!<PAGE>Press left or right on the + Pad to pick the track to fix."
 '0x5B93': "Well done, Thomas! Keep it up and fix all the tracks!"
 '0x5BB8': "The curved track is broken too!"
-'0x5BCC': "Right! I'll keep on fixing them!"
+'0x5BCC': "Right! I'll keep fixing them!"
 '0x5BE4': "Hello, Thomas!<PAGE>I'm waiting here for Percy to bring my coaches."
 '0x5C15': "Hey, Thomas!<PAGE>Could you go and help Percy? He's just up ahead."
 '0x5C3D': "Thanks, Thomas! Now we can carry on!"
@@ -73,7 +73,7 @@
 '0x64F3': "Leave Percy's rescue to Edward.<PAGE>You take the {mailvan}!"
 '0x652A': "Hello, Thomas!<PAGE>There's a party at the Vicar's today!<PAGE>I can't wait!"
 '0x6568': "Leave Percy to me.<PAGE>You look after the {mailvan}, Thomas!"
-'0x6595': "All right, Edward! Look after Percy!"
+'0x6595': "OK, Edward! Look after Percy!"
 '0x65B8': "The viaduct is about to collapse! Hurry across before it falls!"
 '0x65DF': "Wait, Thomas! I've caught up at last!<PAGE>Could you deliver this parcel too?"
 '0x6612': "Someone forgot to load it!<PAGE>Thanks, Caroline. Leave the rest to me!"
@@ -84,7 +84,7 @@
 
 # --- Chapter 3: the harbour
 '0x66FA': "The storm didn't do much damage at the {harbour|harbor},<PAGE>but please check the tracks there, just in case."
-'0x6732': "Yes, sir!<PAGE>Hooray! I get to go to the {harbour|harbor}!"
+'0x6732': "Yes, sir!<PAGE>Hooray! I'm off to the {harbour|harbor}!"
 '0x675A': "The {harbour|harbor} is down by the sea, Thomas!"
 '0x6771': "Right! Full steam ahead!"
 '0x6786': "Percy's having {a big row|a big fight} with the {trucks} at the {harbour|harbor}!<PAGE>Go and see the yard down there!"
@@ -94,8 +94,8 @@
 '0x6816': "I don't want to deal with {trucks} any more!"
 '0x682C': "Let's just couple up those badly behaved {trucks}!"
 '0x6855': "Thomas,<PAGE>could you go and help Donald and Douglas?<PAGE>They should be at the {harbour|harbor}."
-'0x688B': "Leave it to me! I'll be a real help!"
-'0x68A9': "To stop the {trucks} teasing you,<PAGE>you have to be firm with them!"
+'0x688B': "Leave it to me! I'll be a big help!"
+'0x68A9': "If the {trucks} tease you,<PAGE>be firm with them!"
 '0x68D4': "Thanks, Thomas!<PAGE>That'll keep the {trucks} quiet for a while!"
 '0x68FE': "Checking the tracks today? Good work!"
 '0x691A': "Hello, Thomas! Could you help me move these {trucks}?"
@@ -110,7 +110,7 @@
 '0x6A56': "Making everyone happy<PAGE>makes me really happy too!"
 
 # --- Chapter 4: the mountain
-'0x6A81': "The storm did a lot of damage on the mountain.<PAGE>The line is cut off there,<PAGE>and an engine may be stranded.<PAGE>Thomas, go and take a look."
+'0x6A81': "The storm did a lot of damage on the mountain.<PAGE>The line is cut off there,<PAGE>and an engine may be stuck.<PAGE>Thomas, go and take a look."
 '0x6AD1': "Yes, sir! I'll go and find out!"
 '0x6AE7': "Thomas! The mountain isn't this way!"
 '0x6B08': "There are big black clouds over the mountain...<PAGE>Looks like it's going to rain!"
@@ -119,7 +119,7 @@
 '0x6B8C': "Don't laugh, James!<PAGE>You make mistakes too, don't you?"
 '0x6BBB': "The mountain<PAGE>might be the other way at that junction back there."
 '0x6BE7': "On my way to the mountain,<PAGE>my tank ran dry and I couldn't move!"
-'0x6C1A': "Don't worry, I'm here now!<PAGE>I'll push you to the water tower!"
+'0x6C1A': "Don't worry, I'm here now!<PAGE>I'll push you to get water!"
 '0x6C4A': "Heave-ho, heave-ho... We made it to the water tower!"
 '0x6C6B': "Thanks, Thomas! You saved me...<PAGE>The mountain is up this line.<PAGE>I'll go on ahead!"
 '0x6CB7': "The track is broken! Please, Thomas, could you fix it?"
@@ -158,7 +158,7 @@
 '0x7178': "Could you move, please? Let me into the station!"
 '0x7196': "No way...<PAGE>Diesels are the future.<PAGE>{Old crocks|Old rust buckets} like you should just go home!"
 '0x71D0': "Stop squabbling there!<PAGE>If you must fight, why not settle it with a race?"
-'0x720A': "Right! I won't lose to a diesel!"
+'0x720A': "Right! No diesel can beat me!"
 '0x7226': "Working for everyone<PAGE>feels really nice, doesn't it?"
 '0x7249': "Here we are, little passenger!"
 '0x7260': "Thank you, Thomas! Keep working hard for everyone!"
