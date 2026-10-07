@@ -28,4 +28,10 @@ just review    # script/review.md: JP / UK / US side by side, wrapped as in-game
   overflow; `tools/explore.py` drives stages/minigames and saves contact sheets.
 - `tools/` — table, dumper, inserter, emulator helpers. `notes/re-notes.md` — ROM internals.
 
+## Development-only helpers
+`just play <scene> [us|uk]` (`tools/dev/play.py`) rebuilds and opens the ROM in a PyBoy window at a
+scene that is slow to reach by hand, e.g. `just play stage-clear`. It is a testing aid only:
+it isn't used by the build or the patches and can be deleted (`tools/dev/` plus the
+"DEV ONLY" section of the justfile).
+
 Distribute the patch files only, never the ROM.
