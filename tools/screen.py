@@ -23,6 +23,9 @@ from lz import compress, decompress
 SCREENS = {
     "title": {"list": 0x1360},
     "menu": {"list": 0x13F3},
+    "minigame": {"list": 0x139F},
+    "stages": {"list": 0x13C0},
+    "stages2": {"list": 0x13C0, "map": 0x9C00},    # stage select page 2 (Stage 5)
 }
 
 
@@ -183,10 +186,17 @@ def build_screen(rom, name, png_path, meta, hook=None):
     entries = read_list(rom, SCREENS[name]["list"])
     vram = load_vram(rom, entries)
     original = [bytes(v) for v in vram]
-    map_e = next(e for e in entries if e["dest"] == 0x9800 and e["vbank"] == 0)
-    attr_e = next(e for e in entries if e["dest"] == 0x9800 and e["vbank"] == 1)
-    orig_map = bytes(vram[0][0x1800:0x1800 + map_e["size"]])
-    orig_attr = bytes(vram[1][0x1800:0x1800 + attr_e["size"]])
+    base = SCREENS[name].get("map", 0x9800)
+    map_e = next(e for e in entries if e["dest"] == base and e["vbank"] == 0)
+    attr_e = next(e for e in entries if e["dest"] == base and e["vbank"] == 1)
+    off = base - 0x8000
+    orig_map = bytes(vram[0][off:off + map_e["size"]])
+    orig_attr = bytes(vram[1][off:off + attr_e["size"]])
+    other_maps = set()          # tiles shown by the list's other tilemap(s) must not move
+    for e in entries:
+        if e["dest"] in (0x9800, 0x9C00) and e["dest"] != base and e["vbank"] == 0:
+            o = e["dest"] - 0x8000
+            other_maps |= {((vram[1][o + i] >> 3) & 1, vram[0][o + i]) for i in range(e["size"])}
     tile_es = [e for e in entries if 0x8800 <= e["dest"] < 0x9800]
     slots = []
     for e in tile_es:
@@ -195,15 +205,24 @@ def build_screen(rom, name, png_path, meta, hook=None):
     # never touch tiles the original map doesn't show (sprites / runtime-drawn graphics)
     visible = {((orig_attr[i] >> 3) & 1, orig_map[i]) for i in range(len(orig_map))}
     reserved = set(hook.reserved(rom)) if hook else set()
-    slots = [sl for sl in slots if sl in visible and sl not in reserved]
+    slots = [sl for sl in slots if sl in visible and sl not in reserved and sl not in other_maps]
     new_tiles, tmap, tattr, nchanged = retile(Image.open(png_path), bytes.fromhex(meta["palettes"]),
                                               vram, orig_map, orig_attr, meta["rows"], slots)
     for (vb, ti), data in new_tiles.items():
         a = tile_addr(ti) - 0x8000
         vram[vb][a:a + 16] = data
     patches = hook(rom, vram, tmap, tattr) if hook else []
+    covered = [set(), set()]
+    for e in entries:
+        covered[e["vbank"]].update(range(e["dest"] - 0x8000, e["dest"] - 0x8000 + e["size"]))
+    for vb in (0, 1):
+        stray = [a for a in range(0x2000) if vram[vb][a] != original[vb][a] and a not in covered[vb]]
+        if stray:
+            raise ValueError(f"{name}: VRAM bank {vb} edits at {0x8000 + stray[0]:#06x} are not loaded by this screen")
     out = []
-    for e in tile_es:
+    for e in entries:
+        if e is map_e or e is attr_e:
+            continue
         start = e["dest"] - 0x8000
         cur = bytes(vram[e["vbank"]][start:start + e["size"]])
         if cur != original[e["vbank"]][start:start + e["size"]]:
@@ -220,7 +239,8 @@ def export(rom, name, outdir, pal_hex, rows=18):
     vram = load_vram(rom, entries)
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=True)
-    render(vram, bytes.fromhex(pal_hex), rows=rows).save(outdir / "original.png")
+    render(vram, bytes.fromhex(pal_hex), rows=rows,
+           map_base=SCREENS[name].get("map", 0x9800)).save(outdir / "original.png")
     meta = {"palettes": pal_hex, "rows": rows,
             "assets": [{k: (hex(v) if isinstance(v, int) and k != "vbank" else v) for k, v in e.items()}
                        for e in entries]}

@@ -287,7 +287,7 @@ def main():
             print("ERROR", err)
         failed |= bool(errors)
         if not errors and not args.check:
-            out = bytes(insert_screens(bytearray(out)))
+            out = bytes(insert_screens(bytearray(out), dub=dub))
             path = Path(args.out.format(dub=dub))
             path.parent.mkdir(exist_ok=True)
             path.write_bytes(out)

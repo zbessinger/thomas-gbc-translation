@@ -8,9 +8,36 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from menu_items import MenuItems
+from minigame_banner import MinigameBanner
+from card_labels import CardLabels
 from screen import SCREENS, build_screen
 
-HOOKS = {"menu": MenuItems()}
+class Hooks:
+    """Several hooks acting on one screen."""
+    def __init__(self, *hooks):
+        self.hooks = hooks
+
+    @property
+    def dub(self):
+        return self.hooks[0].dub
+
+    @dub.setter
+    def dub(self, value):
+        for h in self.hooks:
+            h.dub = value
+
+    def reserved(self, rom):
+        return set().union(*(h.reserved(rom) for h in self.hooks))
+
+    def __call__(self, rom, vram, tmap, tattr):
+        return [p for h in self.hooks for p in h(rom, vram, tmap, tattr)]
+
+
+HOOKS = {
+    "menu": MenuItems(),
+    "minigame": Hooks(MinigameBanner(), CardLabels("minigame", pos=0x913B, tiles=0x9143, attrs=0x91A3)),
+    "stages": CardLabels("stages", pos=0x8D25, tiles=0x8D2D, attrs=0x8D8D),
+}
 
 GFX_BANKS = [0x09, 0x0A, 0x0B, 0x0C, 0x0D]   # entirely free (0xFF) in the original ROM
 
@@ -30,7 +57,7 @@ class Allocator:
         raise ValueError("out of graphics space")
 
 
-def insert_screens(rom, root="gfx/screens", log=print):
+def insert_screens(rom, root="gfx/screens", log=print, dub="uk"):
     alloc = Allocator(rom)
     for name in SCREENS:
         png = Path(root) / name / "screen.png"
@@ -38,6 +65,8 @@ def insert_screens(rom, root="gfx/screens", log=print):
             continue
         meta = json.loads((Path(root) / name / "meta.json").read_text())
         hook = HOOKS.get(name)
+        if hook is not None:
+            hook.dub = dub
         streams, patches, stats = build_screen(bytes(rom), name, png, meta, hook)
         for off, data in patches:
             rom[off:off + len(data)] = data
@@ -52,5 +81,5 @@ def insert_screens(rom, root="gfx/screens", log=print):
 
 if __name__ == "__main__":
     rom = bytearray(Path(sys.argv[1]).read_bytes())
-    insert_screens(rom)
+    insert_screens(rom, dub=sys.argv[3] if len(sys.argv) > 3 else "uk")
     Path(sys.argv[2]).write_bytes(rom)
