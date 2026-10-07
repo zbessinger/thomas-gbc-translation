@@ -11,6 +11,7 @@ from menu_items import MenuItems
 from minigame_banner import MinigameBanner
 from card_labels import CardLabels
 from book_plates import BookPlates
+import stream_edits
 from screen import SCREENS, build_screen
 
 class Hooks:
@@ -78,6 +79,7 @@ def insert_screens(rom, root="gfx/screens", log=print, dub="uk"):
             rom[o:o + 3] = bytes([ptr & 0xFF, ptr >> 8, bank])
         log(f"[gfx] {name}: {stats['changed_cells']} cells changed, {stats['new_tiles']} new tiles, "
             f"{len(streams)} streams rewritten ({sum(len(b) for _, b in streams)} bytes)")
+    stream_edits.apply(rom, alloc, log)
     return rom
 
 

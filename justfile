@@ -25,7 +25,7 @@ check:
 
 # regenerate edited screen art (gfx/screens/*/make.py -> screen.png, items.png)
 gfx:
-    for f in gfx/screens/*/make.py; do uv run python $f; done
+    for f in gfx/screens/*/make.py gfx/streams/make.py; do uv run python $f; done
 
 # build out/thomas-en-uk.gbc and out/thomas-en-us.gbc and fix their checksums
 build:

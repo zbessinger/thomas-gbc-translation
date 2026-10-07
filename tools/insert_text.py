@@ -27,13 +27,15 @@ FIRST_CODE = 0x0B             # first code reused for English glyphs (after spac
 RESERVED = {0x79, 0x7A}       # mark codes: the printer draws them on the row above
 
 # Text box layouts (measured in-game). `widths` = max chars per line on one page.
-#  dialogue    story box, text from column 2; the blinking "next" arrow covers columns
-#              17-18 of the third row, so that line stops at 15. Pages allowed.
+#  dialogue    any story message. The same message can appear in the cutscene box (text
+#              from column 2) or the in-stage portrait box (window layer, columns 7-18,
+#              arrow on columns 18-19 of row 3), so everything is wrapped for the narrower
+#              one: 12/12/11 (the Japanese also never exceeds 12 per line). Pages allowed.
 #  zukan       encyclopedia entry box (column 8-18). FF 01 pages HANG this printer.
 #  zukan_intro encyclopedia intro box (column 2-17).
 #  system      framed menu-message box; lines are centred like the Japanese.
 BOXES = {
-    "dialogue":    {"widths": [17, 17, 15], "pages": True,  "center": False},
+    "dialogue":    {"widths": [12, 12, 11], "pages": True,  "center": False},
     "zukan":       {"widths": [11, 11, 11, 11], "pages": False, "center": False},
     "zukan_intro": {"widths": [16, 16, 16], "pages": False, "center": False},
     "system":      {"widths": [16, 16, 16], "pages": False, "center": True},

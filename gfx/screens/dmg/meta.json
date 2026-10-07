@@ -1,0 +1,36 @@
+{
+  "palettes": "ff7fb5564a290000ff7fb5564a290000ff7fb5564a290000ff7fb5564a290000ff7fb5564a290000ff7fb5564a290000ff7fb5564a290000ff7fb5564a290000",
+  "rows": 18,
+  "assets": [
+    {
+      "entry": "0x1420",
+      "ptr": "0x49b3",
+      "bank": "0x1e",
+      "dest": "0x9000",
+      "vbank": 0,
+      "rom": "0x789b3",
+      "size": "0x800",
+      "stream_len": "0x56b"
+    },
+    {
+      "entry": "0x1426",
+      "ptr": "0x4f1e",
+      "bank": "0x1e",
+      "dest": "0x8800",
+      "vbank": 0,
+      "rom": "0x78f1e",
+      "size": "0x220",
+      "stream_len": "0x122"
+    },
+    {
+      "entry": "0x142c",
+      "ptr": "0x5040",
+      "bank": "0x1e",
+      "dest": "0x9800",
+      "vbank": 0,
+      "rom": "0x79040",
+      "size": "0x240",
+      "stream_len": "0x116"
+    }
+  ]
+}

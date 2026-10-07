@@ -27,7 +27,12 @@ SCREENS = {
     "stages": {"list": 0x13C0},
     "stages2": {"list": 0x13C0, "map": 0x9C00},    # stage select page 2 (Stage 5)
     "book": {"list": 0x1384},                       # encyclopedia intro (header plate only)
+    # "Game Boy Color only" screen (DMG mode, no attrs). Nothing else uses VRAM here, so its
+    # $8800 tile stream may grow to the full 128 tiles to make room for English text.
+    "dmg": {"list": 0x1420, "extend": {(0, 0x8800): 0x800}},
 }
+# Palette for monochrome (DMG-mode) screens: edited in index space as 4 greys.
+GREYS = "ff7f" + "b556" + "4a29" + "0000"
 
 
 def read_list(rom, off):
@@ -112,7 +117,7 @@ def _encode_tile(rows):
     return bytes(out)
 
 
-def retile(img, pal_bytes, vram, orig_map, orig_attr, rows, slots, cols=20):
+def retile(img, pal_bytes, vram, orig_map, orig_attr, rows, slots, cols=20, plain=False):
     """Re-tile an edited screen image.
 
     Cells whose pixels match the original render keep their original map/attribute entries
@@ -150,15 +155,16 @@ def retile(img, pal_bytes, vram, orig_map, orig_attr, rows, slots, cols=20):
     for i, cell in changed:
         a0 = orig_attr[i]
         colours = {c for r in cell for c in r}
-        for p in [a0 & 7] + [q for q in range(8) if q != (a0 & 7)]:
+        for p in ([0] if plain else [a0 & 7] + [q for q in range(8) if q != (a0 & 7)]):
             if colours <= set(pals[p]):
                 break
         else:
             raise ValueError(f"cell ({i % 32},{i // 32}) colours {colours} fit no palette")
         index = [[pals[p].index(c) for c in r] for r in cell]
         hit = None
-        for xf in (False, True):
-            for yf in (False, True):
+        flips = (False,) if plain else (False, True)    # plain = no attribute map (DMG screens)
+        for xf in flips:
+            for yf in flips:
                 v = [r[::-1] if xf else r for r in (index[::-1] if yf else index)]
                 key = _encode_tile(v)
                 if key in known:
@@ -191,26 +197,35 @@ def build_screen(rom, name, png_path, meta, hook=None):
     original = [bytes(v) for v in vram]
     base = SCREENS[name].get("map", 0x9800)
     map_e = next(e for e in entries if e["dest"] == base and e["vbank"] == 0)
-    attr_e = next(e for e in entries if e["dest"] == base and e["vbank"] == 1)
+    attr_e = next((e for e in entries if e["dest"] == base and e["vbank"] == 1), None)
     off = base - 0x8000
     orig_map = bytes(vram[0][off:off + map_e["size"]])
-    orig_attr = bytes(vram[1][off:off + attr_e["size"]])
+    orig_attr = bytes(vram[1][off:off + attr_e["size"]]) if attr_e else bytes(map_e["size"])
     other_maps = set()          # tiles shown by the list's other tilemap(s) must not move
     for e in entries:
         if e["dest"] in (0x9800, 0x9C00) and e["dest"] != base and e["vbank"] == 0:
             o = e["dest"] - 0x8000
             other_maps |= {((vram[1][o + i] >> 3) & 1, vram[0][o + i]) for i in range(e["size"])}
     tile_es = [e for e in entries if 0x8800 <= e["dest"] < 0x9800]
+    for (vb, dest), size in SCREENS[name].get("extend", {}).items():
+        e = next(e for e in tile_es if e["vbank"] == vb and e["dest"] == dest)
+        e["extra"] = set()
+        for a in range(e["dest"] + e["size"], e["dest"] + size, 16):
+            e["extra"].add((vb, (a - 0x9000) // 16 if a >= 0x9000 else 128 + (a - 0x8800) // 16))
+        e["size"] = size
     slots = []
     for e in tile_es:
         for a in range(e["dest"], e["dest"] + e["size"], 16):
             slots.append((e["vbank"], (a - 0x9000) // 16 if a >= 0x9000 else 128 + (a - 0x8800) // 16))
     # never touch tiles the original map doesn't show (sprites / runtime-drawn graphics)
     visible = {((orig_attr[i] >> 3) & 1, orig_map[i]) for i in range(len(orig_map))}
+    for e in tile_es:
+        visible |= e.get("extra", set())
     reserved = set(hook.reserved(rom)) if hook else set()
     slots = [sl for sl in slots if sl in visible and sl not in reserved and sl not in other_maps]
     new_tiles, tmap, tattr, nchanged = retile(Image.open(png_path), bytes.fromhex(meta["palettes"]),
-                                              vram, orig_map, orig_attr, meta["rows"], slots)
+                                              vram, orig_map, orig_attr, meta["rows"], slots,
+                                              plain=attr_e is None)
     for (vb, ti), data in new_tiles.items():
         a = tile_addr(ti) - 0x8000
         vram[vb][a:a + 16] = data
@@ -233,6 +248,8 @@ def build_screen(rom, name, png_path, meta, hook=None):
     if tmap != orig_map:
         out.append((map_e, compress(bytes(tmap))))
     if tattr != orig_attr:
+        if attr_e is None:
+            raise ValueError(f"{name}: DMG screen needs attribute changes (palette/bank/flip)")
         out.append((attr_e, compress(bytes(tattr))))
     return out, patches, {"changed_cells": nchanged, "new_tiles": len(new_tiles), "free_slots": len(slots)}
 
