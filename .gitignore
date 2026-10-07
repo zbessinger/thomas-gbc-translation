@@ -1,0 +1,9 @@
+rom/
+out/
+*.zip
+*.gbc
+*.sav
+.venv/
+__pycache__/
+vendor/
+.DS_Store
