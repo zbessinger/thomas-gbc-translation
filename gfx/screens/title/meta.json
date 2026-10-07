@@ -1,0 +1,46 @@
+{
+  "palettes": "c0591f009f03ff7fc2481f009f03ff7fc2481f009f03202fc2481f001f42ff7fc2487b6f202f9f03c2487b6f4d4f202f1f00ff7f202fff7f0000000000000000",
+  "rows": 18,
+  "assets": [
+    {
+      "entry": "0x1360",
+      "ptr": "0x4000",
+      "bank": "0x13",
+      "dest": "0x9000",
+      "vbank": 0,
+      "rom": "0x4c000",
+      "size": "0x800",
+      "stream_len": "0x538"
+    },
+    {
+      "entry": "0x1366",
+      "ptr": "0x4538",
+      "bank": "0x13",
+      "dest": "0x9000",
+      "vbank": 1,
+      "rom": "0x4c538",
+      "size": "0x720",
+      "stream_len": "0x47e"
+    },
+    {
+      "entry": "0x136c",
+      "ptr": "0x49b6",
+      "bank": "0x13",
+      "dest": "0x9800",
+      "vbank": 1,
+      "rom": "0x4c9b6",
+      "size": "0x240",
+      "stream_len": "0x94"
+    },
+    {
+      "entry": "0x1372",
+      "ptr": "0x4a4a",
+      "bank": "0x13",
+      "dest": "0x9800",
+      "vbank": 0,
+      "rom": "0x4ca4a",
+      "size": "0x240",
+      "stream_len": "0x115"
+    }
+  ]
+}

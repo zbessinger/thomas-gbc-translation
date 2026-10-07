@@ -15,6 +15,7 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).parent))
+from build_gfx import insert_screens
 from dump_text import BANK_BASE, PTR_COUNT, PTR_TABLE
 
 CLEAN_SHA1 = "8abd4406ec19bfecd6d675285fa73ef2d5ea622e"
@@ -286,6 +287,7 @@ def main():
             print("ERROR", err)
         failed |= bool(errors)
         if not errors and not args.check:
+            out = bytes(insert_screens(bytearray(out)))
             path = Path(args.out.format(dub=dub))
             path.parent.mkdir(exist_ok=True)
             path.write_bytes(out)

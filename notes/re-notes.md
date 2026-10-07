@@ -45,11 +45,25 @@ Free banks (all `$FF`): 9–13, 21, 32–63.
 - A second copy of the printer exists in bank `$12` (~line 5276 of the mgbdis output),
   probably for the encyclopedia box.
 
-## Graphics with Japanese text (to redraw)
-- Title screen logo + "ボタンをおしてね!" (press a button).
-- Main menu: なにをプレイしますか? / おはなしのつづき / おはなしをはじめる /
-  ミニゲームであそぶ / トーマスずかん.
-- Minigame menu banner: ステージクリアでミニゲームがふえるよ.
-- Encyclopedia: header plate "トーマスずかん", per-character name plates, "Nページ".
-- Not yet located in ROM; several high-entropy banks (8, 16, 17, 20, 25, 28) look
-  compressed.
+## Compressed graphics (`tools/lz.py`, `tools/screen.py`)
+- LZSS decoder at `$00:18A4`. Stream = `u16 decoded_size, u16 n` + n bytes. Flag bytes LSB
+  first: 1 = literal, 0 = 2-byte ref `lo, hi`: length `(hi&0F)+3`, distance
+  `((hi>>4)<<8|lo)+1`. Decodes straight to VRAM/WRAM. 166 streams in the ROM
+  (`notes/lz_streams.tsv`); our greedy encoder matches the original sizes (100%).
+- Screen asset lists live in bank 0 around `0x1340–0x1420`: 6-byte entries
+  `ptr16, rom_bank, vram_dest16, vram_bank`, `FF FF FF`-terminated. Repointing an asset is
+  just rewriting its entry; new streams go into free banks 9–13 (`tools/build_gfx.py`).
+  - Title list `0x1360` (bank `$13`): tiles→`$9000` vb0/vb1, attrs, map.
+  - Main menu list `0x13F3` (bank `$1C`); minigame menu `0x139F` (bank `$1E`);
+    encyclopedia `0x1384` (bank `$04`).
+- Screens are LCDC `$E7` (signed tile addressing). Retiler keeps unchanged cells' map
+  entries exactly (palettes repeat colours, so indices can't be re-derived from RGB) and
+  only allocates tiles freed by edited cells. Each 8×8 cell must fit one BG palette.
+- Main-menu highlight: menu code (bank 2) rewrites item cells from tables at `$02:4431`
+  (positions), `$4439`/`$44A9` (normal tiles/attrs), `$4521`/`$4591` (selected),
+  4 items × 2 rows × 14 cells; handled by `tools/menu_items.py`.
+
+## Graphics status
+- Done: title screen, main menu (header + 4 items, both highlight states).
+- To do: minigame menu (banner + stage cards), encyclopedia header plate / name plates /
+  "Nページ", minigame screens, any in-story signs.
