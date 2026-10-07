@@ -63,7 +63,20 @@ Free banks (all `$FF`): 9–13, 21, 32–63.
   (positions), `$4439`/`$44A9` (normal tiles/attrs), `$4521`/`$4591` (selected),
   4 items × 2 rows × 14 cells; handled by `tools/menu_items.py`.
 
+## Code-drawn graphics (bank 2 / 4 / 5 tables)
+- Minigame menu (`0x139F`): "clear stages" banner = 20 OBJ sprites (8x16, 10x2), tiles
+  `$02–$29` of the `$1E:4000` sprite stream, OBJ palette 1 (`tools/minigame_banner.py`).
+  Card titles: `$02:513B` positions, `$5143` tiles, `$51A3` attrs (4 × 8×3, both VRAM banks).
+- Stage select (`0x13C0`): labels `$02:4D25`/`$4D2D`/`$4D8D`; labels 2–4 shown when
+  WRAM `$CBF3` ≠ 0. Page 2 (Stage 5) is the `$9C00` tilemap of the same list.
+- Encyclopedia (`0x1384`): intro header = tiles `$41–$5D` of the bank-1 stream, layout
+  `0x10509`, attrs `0x104E5`. Name plates: bank 5 pointer table (27) → raw tiles, loader
+  copies `$200` bytes to tile `$41`+; layouts `0x128F7`, attrs `0x12C21` (27 × 30).
+  "ページ" = tiles `$2C–$33` (bank 1). 26 real entries + "???".
+- Test unlocks: after the title, set WRAM `$CBF3–$CC3F` to `$FF` (all stages, minigames
+  and encyclopedia entries).
+
 ## Graphics status
-- Done: title screen, main menu (header + 4 items, both highlight states).
-- To do: minigame menu (banner + stage cards), encyclopedia header plate / name plates /
-  "Nページ", minigame screens, any in-story signs.
+- Done: title, main menu, minigame menu (banner + titles), stage select (both pages),
+  encyclopedia (header, 26 plates, page bar).
+- To do: inside the minigames and story stages (signs, HUD text, results screens).

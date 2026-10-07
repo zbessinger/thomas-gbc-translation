@@ -26,6 +26,7 @@ SCREENS = {
     "minigame": {"list": 0x139F},
     "stages": {"list": 0x13C0},
     "stages2": {"list": 0x13C0, "map": 0x9C00},    # stage select page 2 (Stage 5)
+    "book": {"list": 0x1384},                       # encyclopedia intro (header plate only)
 }
 
 
@@ -89,7 +90,7 @@ def render(vram, pal_bytes, rows=18, cols=32, map_base=0x9800):
     for ty in range(rows):
         for tx in range(cols):
             m = map_base - 0x8000 + ty * 32 + tx
-            idx, attr = vram[0][m], vram[1][m]
+            idx, attr = vram[0][m], vram[1][m]   # cells past a partial map render as tile 0
             pix = tile_pixels(vram, (attr >> 3) & 1, idx, bool(attr & 0x20), bool(attr & 0x40))
             pal = pals[attr & 7]
             for y in range(8):
@@ -131,6 +132,8 @@ def retile(img, pal_bytes, vram, orig_map, orig_attr, rows, slots, cols=20):
     for ty in range(rows):
         for tx in range(cols):
             i = ty * 32 + tx
+            if i >= len(orig_map):          # partial tilemaps (e.g. the encyclopedia header)
+                continue
             cell = [[px[tx * 8 + x, ty * 8 + y] for x in range(8)] for y in range(8)]
             o, pal = orig_cell(i), pals[orig_attr[i] & 7]
             if any(pal[o[y][x]] != cell[y][x] for y in range(8) for x in range(8)):

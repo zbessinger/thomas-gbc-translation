@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from menu_items import MenuItems
 from minigame_banner import MinigameBanner
 from card_labels import CardLabels
+from book_plates import BookPlates
 from screen import SCREENS, build_screen
 
 class Hooks:
@@ -37,6 +38,7 @@ HOOKS = {
     "menu": MenuItems(),
     "minigame": Hooks(MinigameBanner(), CardLabels("minigame", pos=0x913B, tiles=0x9143, attrs=0x91A3)),
     "stages": CardLabels("stages", pos=0x8D25, tiles=0x8D2D, attrs=0x8D8D),
+    "book": BookPlates(),
 }
 
 GFX_BANKS = [0x09, 0x0A, 0x0B, 0x0C, 0x0D]   # entirely free (0xFF) in the original ROM
