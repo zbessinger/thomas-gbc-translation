@@ -11,907 +11,944 @@
   jp: トーマス、<NL>たのみたいことが<NL>あるが よいかな?<PAGE>せんしゅうのおおあらしで<NL>ソドーとうのせんろが<NL>こわれてしまった<PAGE>そこで<NL>せんろをなおしてきて<NL>ほしいのだ<END>
   en: 'Thomas, may I ask
 
-    you a favour?<PAGE>Last week''s big storm broke the railway lines on the Island of Sodor.<PAGE>So I''d like you to go and fix the tracks.'
+    you a {favour|favor}?<PAGE>Last week''s big storm broke the tracks all over the Island of Sodor.<PAGE>So I''d like you to go and fix them.'
 - addr: '0x5AB1'
   rom: '0x49AB1'
   len: 49
   ids: [2]
   jp: わかりました!<PAGE>しまのみんなのために<NL>せんろをなおしにいきます<PAGE>さあ、がんばるぞ!<END>
-  en: Yes, sir!<PAGE>I'll fix the tracks for everyone on the island!<PAGE>Right, let's go!
+  en: Yes, sir!<PAGE>I'll fix the tracks for everyone on the island!<PAGE>Right, here I go!
 - addr: '0x5AE2'
   rom: '0x49AE2'
   len: 20
   ids: [3]
   jp: さあ、トーマス<NL>しゅっぱつだ!<END>
-  en: Off you go, Thomas! Jolly good, happy quaking yaks.
+  en: Off you go, Thomas!
 - addr: '0x5AF6'
   rom: '0x49AF6'
   len: 19
   ids: [4]
   jp: ここは<NL>いきどまりのようだな<END>
-  en: ''
+  en: Looks like this is a dead end.
 - addr: '0x5B09'
   rom: '0x49B09'
   len: 52
   ids: [5]
   jp: このさきのせんろが<NL>こわれていて<NL>さきへすすめないんだ<PAGE>トーマス<NL>なおしてくれないかい?<END>
-  en: ''
+  en: The track ahead is broken, so I can't go any further.<PAGE>Thomas, could you fix it for me?
 - addr: '0x5B3D'
   rom: '0x49B3D'
   len: 22
   ids: [6]
   jp: おやすいごようさ<NL>ぼくにまかせて!<END>
-  en: ''
+  en: No trouble at all! Leave it to me!
 - addr: '0x5B53'
   rom: '0x49B53'
   len: 64
   ids: [7]
   jp: よし、トーマス<NL>このこわれたせんろを<NL>なおすぞ<PAGE>じゅうじボタンのさゆうで<NL>なおすせんろを<NL>えらぶんだ<END>
-  en: ''
+  en: Right, Thomas, let's mend this broken track!<PAGE>Press left or right on the + Pad to pick the track to fix.
 - addr: '0x5B93'
   rom: '0x49B93'
   len: 37
   ids: [8]
   jp: よくやったトーマス<NL>このちょうしで<NL>ぜんぶのせんろをなおそう<END>
-  en: ''
+  en: Well done, Thomas! Keep it up and fix all the tracks!
 - addr: '0x5BB8'
   rom: '0x49BB8'
   len: 20
   ids: [9]
   jp: カーブのせんろも<NL>こわれているよ<END>
-  en: ''
+  en: The curved track is broken too!
 - addr: '0x5BCC'
   rom: '0x49BCC'
   len: 24
   ids: [10]
   jp: ようし!<NL>どんどん<NL>なおしていくぞ<END>
-  en: ''
+  en: Right! I'll keep on fixing them!
 - addr: '0x5BE4'
   rom: '0x49BE4'
   len: 49
   ids: [11]
   jp: やぁ トーマス<PAGE>パーシーがきゃくしゃを<NL>よういしてくれるのを<NL>ここでまっているのさ<END>
-  en: ''
+  en: Hello, Thomas!<PAGE>I'm waiting here for Percy to bring my coaches.
 - addr: '0x5C15'
   rom: '0x49C15'
   len: 40
   ids: [12]
   jp: ねえ トーマス<PAGE>このさきにいる<NL>パーシーを<NL>てつだってやってくれよ<END>
-  en: ''
+  en: Hey, Thomas!<PAGE>Could you go and help Percy? He's just up ahead.
 - addr: '0x5C3D'
   rom: '0x49C3D'
   len: 26
   ids: [13, 14, 15]
   jp: ありがとうトーマス<NL>これでさきにすすめるよ<END>
-  en: ''
+  en: Thanks, Thomas! Now we can carry on!
 - addr: '0x5C57'
   rom: '0x49C57'
   len: 31
   ids: [16]
   jp: こまったなぁ・・・<NL>ふみきりのせんろが<NL>こわれてるよ<END>
-  en: ''
+  en: Oh dear... The track at the {crossing} is broken!
 - addr: '0x5C76'
   rom: '0x49C76'
   len: 41
   ids: [17]
   jp: ありがとう トーマス<PAGE>やっぱりきみは<NL>やくにたつ<NL>きかんしゃだね!<END>
-  en: ''
+  en: Thank you, Thomas!<PAGE>You really are a Really Useful Engine!
 - addr: '0x5C9F'
   rom: '0x49C9F'
   len: 48
   ids: [18, 19, 20]
   jp: やぁ トーマス!<NL>ぼくも きんきゅう<NL>しゅつどうなのさ<PAGE>おたがいがんばろう!<END>
-  en: ''
+  en: Hello, Thomas! I've been called out on an emergency too!<PAGE>Let's both do our best!
 - addr: '0x5CCF'
   rom: '0x49CCF'
   len: 76
   ids: [21]
   jp: おねがいだよトーマス<NL>このしごとを<NL>てつだってくれないかなぁ<PAGE>エドワードの<NL>しゅっぱつのじかんに<NL>まにあわなくなっちゃう!<END>
-  en: ''
+  en: Please, Thomas, could you help me with this job?<PAGE>Otherwise Edward will miss his departure time!
 - addr: '0x5D1B'
   rom: '0x49D1B'
   len: 34
   ids: [22]
   jp: しんぱいするなよ<NL>ぼくが<NL>てつだってあげるからさ!<END>
-  en: ''
+  en: Don't worry! I'll give you a hand!
 - addr: '0x5D3D'
   rom: '0x49D3D'
   len: 52
   ids: [23, 24, 25]
+  box: system
   jp: ' つづきのおはなしがありません<NL>  「おはなしをはじめる」を<NL>    えらんでください<END>'
-  en: ''
+  en: 'No saved story.
+
+    Please choose
+
+    "New Story".'
 - addr: '0x5D71'
   rom: '0x49D71'
   len: 48
   ids: [26]
+  box: system
   jp: '  つづけていたおはなしは<NL> きえますがよろしいですか?<NL>    はい   いいえ<END>'
-  en: ''
+  en: " This will erase\nyour saved game.\n    Yes  No"
+  raw: true
 - addr: '0x5DA1'
   rom: '0x49DA1'
   len: 49
   ids: [27, 28, 29, 30]
+  box: zukan_intro
   jp: トーマスと おはなしをした<NL>なかまたちが ずかんにのるよ<NL>ぜんぶあつめられるかな?<END>
-  en: ''
+  en: Friends you meet go in this book. Find them all!
 - addr: '0x5DD2'
   rom: '0x49DD2'
   len: 45
   ids: [31]
+  box: zukan
   jp: いつもげんきいっぱいの<NL>ちびっこきかんしゃ<NL>せんろなおしで<NL>おおはりきり<END>
-  en: ''
+  en: A cheerful little tank engine who loves work!
 - addr: '0x5DFF'
   rom: '0x49DFF'
   len: 50
   ids: [32]
+  box: zukan
   jp: こころがひろく<NL>しんせつでやさしいので<NL>みんなにしんらいされて<NL>いるきかんしゃです<END>
-  en: ''
+  en: A kind and gentle engine that all trust.
 - addr: '0x5E31'
   rom: '0x49E31'
   len: 49
   ids: [33]
+  box: zukan
   jp: みどりいろのボディーの<NL>スマートなきかんしゃ<NL>あめがあまりすき<NL>ではありません<END>
-  en: ''
+  en: A smart green engine who hates rain.
 - addr: '0x5E62'
   rom: '0x49E62'
   len: 42
   ids: [34]
+  box: zukan
   jp: おおきくてちからもちな<NL>きかんしゃ<NL>きゅうこうれっしゃを<NL>ひいてはしります<END>
-  en: ''
+  en: Big, strong engine that pulls the Express.
 - addr: '0x5E8C'
   rom: '0x49E8C'
   len: 49
   ids: [35]
+  box: zukan
   jp: あかいボディーが<NL>じまんのきかんしゃ<NL>ちょっとうぬぼれやな<NL>ところがあります<END>
-  en: ''
+  en: Proud of his red paint. A bit vain!
 - addr: '0x5EBD'
   rom: '0x49EBD'
   len: 54
   ids: [36]
+  box: zukan
   jp: ボディーはちいさいけど<NL>がんばりやのきかんしゃ<NL>ちょっといたずらずき<NL>でもあります<END>
-  en: ''
+  en: Small, but a hard worker. A bit cheeky!
 - addr: '0x5EF3'
   rom: '0x49EF3'
   len: 54
   ids: [37]
+  box: zukan
   jp: いつもみんなのやくに<NL>たとうとがんばってます<NL>だれからもすかれている<NL>ろめんきかんしゃです<END>
-  en: ''
+  en: A helpful tram engine liked by everyone.
 - addr: '0x5F29'
   rom: '0x49F29'
   len: 44
   ids: [38]
+  box: zukan
   jp: どんなことにも<NL>あわてないきかんしゃ<NL>せいぶてつどうから<NL>やってきました<END>
-  en: ''
+  en: Calm in any crisis. He came from the GWR.
 - addr: '0x5F55'
   rom: '0x49F55'
   len: 47
   ids: [39]
+  box: zukan
   jp: スコットランドから<NL>やってきた<NL>スマートなきかんしゃ<NL>ダグラスとふたごです<END>
-  en: ''
+  en: Smart and Scottish. Twin of Douglas.
 - addr: '0x5F84'
   rom: '0x49F84'
   len: 47
   ids: [40]
+  box: zukan
   jp: いっしょうけんめい<NL>かもつをはこぶ<NL>くろいきかんしゃ<NL>ドナルドとふたごです<END>
-  en: ''
+  en: Black and busy. The twin of Donald.
 - addr: '0x5FB3'
   rom: '0x49FB3'
   len: 46
   ids: [41]
+  box: zukan
   jp: かしゃをこわしてしまう<NL>ほどの ちからもち<NL>いつも かしゃの<NL>せいりをしています<END>
-  en: ''
+  en: So strong he breaks {trucks}!
 - addr: '0x5FE1'
   rom: '0x49FE1'
   len: 50
   ids: [42]
+  box: zukan
   jp: デイジーといっしょに<NL>ソドーとうにやってきた<NL>しんがたの<NL>ディーゼルきかんしゃ<END>
-  en: ''
+  en: Came to Sodor with Daisy. A new diesel.
 - addr: '0x6013'
   rom: '0x4A013'
   len: 40
   ids: [43]
+  box: zukan
   jp: じぶんがってで<NL>いじわるな<NL>ディーゼルきかんしゃ<NL>です<END>
-  en: ''
+  en: A selfish, mean diesel engine.
 - addr: '0x603B'
   rom: '0x4A03B'
   len: 34
   ids: [44]
+  box: zukan
   jp: みなとではたらく<NL>ベンとふたごの<NL>ちびっこきかんしゃ<END>
-  en: ''
+  en: A little engine at the docks. Ben's twin.
 - addr: '0x605D'
   rom: '0x4A05D'
   len: 34
   ids: [45]
+  box: zukan
   jp: とてもわんぱくな<NL>ビルとふたごの<NL>ちびっこきかんしゃ<END>
-  en: ''
+  en: Very cheeky! Bill's twin brother.
 - addr: '0x607F'
   rom: '0x4A07F'
   len: 38
   ids: [46]
+  box: zukan
   jp: いしきりばではたらく<NL>おんなのこの<NL>ディーゼルきかんしゃ<NL><END>
-  en: ''
+  en: A lady diesel who works at the quarry.
 - addr: '0x60A5'
   rom: '0x4A0A5'
   len: 53
   ids: [47]
+  box: zukan
   jp: こうざんてつどうの<NL>ディーゼルきかんしゃ<NL>いろんなしごとのできる<NL>はたらきものです<END>
-  en: ''
+  en: A mountain diesel. He can do any job!
 - addr: '0x60DA'
   rom: '0x4A0DA'
   len: 54
   ids: [48]
+  box: zukan
   jp: ちょっといじわるな<NL>ディーゼルきかんしゃ<NL>うしがこわくて、にげ<NL>だしたことがあります<END>
-  en: ''
+  en: A bit mean. Once ran off, scared of a cow!
 - addr: '0x6110'
   rom: '0x4A110'
   len: 38
   ids: [49]
+  box: zukan
   jp: よそのまちのてつどうで<NL>はたらいていた<NL>としよりのきかんしゃ<NL><END>
-  en: ''
+  en: An old engine from another railway.
 - addr: '0x6136'
   rom: '0x4A136'
   len: 56
   ids: [50]
+  box: zukan
   jp: かしゃたちは みんな<NL>いじわるでいたずらずき<NL>みんなのじゃまをする<NL>こまりものばかりです<END>
-  en: ''
+  en: '{Naughty trucks who get in the way!|Naughty freight cars. Such pests!}'
 - addr: '0x616E'
   rom: '0x4A16E'
   len: 54
   ids: [51]
+  box: zukan
   jp: いつもにぎやかなおとを<NL>たてているヘリコプター<NL>いつもきかんしゃたちと<NL>きょうりょくしています<END>
-  en: ''
+  en: A noisy helicopter. Helps the engines.
 - addr: '0x61A4'
   rom: '0x4A1A4'
   len: 52
   ids: [52]
+  box: zukan
   jp: のうじょうではたらいて<NL>いたけんいんしゃ<NL>ぼくしさんにひきとられ<NL>しあわせにくらしてます<END>
-  en: ''
+  en: Was a farm engine. Now lives with the Vicar.
 - addr: '0x61D8'
   rom: '0x4A1D8'
   len: 50
   ids: [53]
+  box: zukan
   jp: じょうきをあげてはしる<NL>ロードローラー<NL>きかんしゃたちのことを<NL>すきではありません<END>
-  en: ''
+  en: A steam roller who dislikes engines!
 - addr: '0x620A'
   rom: '0x4A20A'
   len: 38
   ids: [54]
+  box: zukan
   jp: どうろでないところでも<NL>はしることができる<NL>トラクター<NL><END>
-  en: ''
+  en: A tractor that can go where there is no road.
 - addr: '0x6230'
   rom: '0x4A230'
   len: 51
   ids: [55]
+  box: zukan
   jp: やさしくてしんせつな<NL>あかいいろの バス<NL>たくさんのきかんしゃを<NL>たすけたことがあります<END>
-  en: ''
+  en: A kind red bus who has helped many engines.
 - addr: '0x6263'
   rom: '0x4A263'
   len: 43
   ids: [56]
+  box: zukan
   jp: やさしくて<NL>きのちいさいじどうしゃ<NL>こわれそうになった<NL>ことがあります<END>
-  en: ''
+  en: A timid little car. Once nearly fell apart!
 - addr: '0x628E'
   rom: '0x4A28E'
   len: 39
   ids: [57]
+  box: zukan
   jp: まだ みつけていない<NL>なかまだよ<NL>がんばってみつけだそう<NL><END>
-  en: ''
+  en: A friend not found yet. Keep looking!
 - addr: '0x62B5'
   rom: '0x4A2B5'
   len: 50
   ids: [58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+  box: zukan_intro
   jp: トーマス と おはなしをした<NL>なかまが ずかんに のるよ!<NL>ぜんぶ あつめられるかな<END>
-  en: ''
+  en: Friends you meet go in this book. Find them all!
 - addr: '0x62E7'
   rom: '0x4A2E7'
   len: 50
   ids: [101]
+  box: zukan
   jp: げんきな トーマス<NL>せんろの しゅうりに<NL>おおはりきり だよ!<NL>おおはりきり だよ!<END>
-  en: ''
+  en: Cheerful Thomas, keen to fix tracks!
 - addr: '0x6319'
   rom: '0x4A319'
   len: 98
   ids: [102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
   jp: トーマス、<NL>トラブルはっせいだ!<PAGE>パーシーがはこんでいる<NL>ゆうびんかしゃが まだ<NL>とどいておらんのだ<PAGE>そこで <NL>もくてきのえきまで<NL>はこんでほしいのだ<END>
-  en: ''
+  en: Thomas, we have a problem!<PAGE>The {mailvan} Percy was bringing still hasn't arrived.<PAGE>So I'd like you to take it to the station.
 - addr: '0x637B'
   rom: '0x4A37B'
   len: 73
   ids: [112]
   jp: それはたいへんだ!<NL>ぼくにまかせてください!<PAGE>じかんにまにあうように<NL>ゆうびんきょくいんさんの<NL>ところまで はこびます!<END>
-  en: ''
+  en: Oh no! Leave it to me, sir!<PAGE>I'll get it to the post office in time!
 - addr: '0x63C4'
   rom: '0x4A3C4'
   len: 32
   ids: [113]
   jp: それにしても<NL>パーシーは<NL>どうしたのだろうな・・・<END>
-  en: ''
+  en: I wonder what's happened to Percy...
 - addr: '0x63E4'
   rom: '0x4A3E4'
   len: 43
   ids: [114]
   jp: おっと! カーブでは<NL>スピードにきをつけないと<NL>だっせんしちゃうよ!<END>
-  en: ''
+  en: Whoops! I must watch my speed on the bends, or I'll come off the rails!
 - addr: '0x640F'
   rom: '0x4A40F'
   len: 28
   ids: [115]
   jp: パーシーがこのさきで<NL>だっせんしたらしいよ<END>
-  en: ''
+  en: I heard Percy came off the rails up ahead!
 - addr: '0x642B'
   rom: '0x4A42B'
   len: 24
   ids: [116]
   jp: ほんとうかい!<NL>それはいちだいじだ!<END>
-  en: ''
+  en: Really? That's terrible!
 - addr: '0x6443'
   rom: '0x4A443'
   len: 38
   ids: [117]
   jp: パーシーが<NL>だっせんしたって!?<PAGE>すぐに<NL>たすけにいこう!<END>
-  en: ''
+  en: Percy's come off the rails?!<PAGE>Let's go and help him!
 - addr: '0x6469'
   rom: '0x4A469'
   len: 51
   ids: [118]
   jp: このはいたつがおわったら<NL>いつものえきでまってるよ<PAGE>ゆうびんかしゃを<NL>よろしくたのむよ<END>
-  en: ''
+  en: When this delivery is done, I'll wait at the usual station.<PAGE>Look after the {mailvan} for me!
 - addr: '0x649C'
   rom: '0x4A49C'
   len: 25
   ids: [119]
   jp: たすけてトーマス!<NL>だっせんしちゃったよー<END>
-  en: ''
+  en: Help me, Thomas! I've come off the rails!
 - addr: '0x64B5'
   rom: '0x4A4B5'
   len: 62
   ids: [120]
   jp: さきに、ゆうびんかしゃを<NL>はこばなくては<NL>ならないんだ<PAGE>たすけがくるまで<NL>がまんしててね パーシー<END>
-  en: ''
+  en: I have to deliver the {mailvan} first.<PAGE>Hang on until help comes, Percy!
 - addr: '0x64F3'
   rom: '0x4A4F3'
   len: 55
   ids: [121]
   jp: パーシーのきゅうしゅつは<NL>エドワードにまかせて、<PAGE>きみは<NL>ゆうびんかしゃを<NL>はこんでくれ<END>
-  en: ''
+  en: Leave Percy's rescue to Edward.<PAGE>You take the {mailvan}!
 - addr: '0x652A'
   rom: '0x4A52A'
   len: 62
   ids: [122, 123]
   jp: こんにちは、トーマス<PAGE>きょうは<NL>ぼくしさんのところで<NL>パーティーがあるんだよ<PAGE>とってもたのしみだなぁ<END>
-  en: ''
+  en: Hello, Thomas!<PAGE>There's a party at the Vicar's today!<PAGE>I can't wait!
 - addr: '0x6568'
   rom: '0x4A568'
   len: 45
   ids: [124]
   jp: パーシーのことは<NL>ぼくにまかせて<PAGE>ゆうびんかしゃのほうを<NL>たのむよトーマス<END>
-  en: ''
+  en: Leave Percy to me.<PAGE>You look after the {mailvan}, Thomas!
 - addr: '0x6595'
   rom: '0x4A595'
   len: 35
   ids: [125]
   jp: わかったよエドワード<NL>パーシーのことは<NL>たのんだよ!!<END>
-  en: ''
+  en: All right, Edward! Look after Percy!
 - addr: '0x65B8'
   rom: '0x4A5B8'
   len: 39
   ids: [126, 127, 128]
   jp: りっきょうがこわれそうだ<NL>はやくわたらないと<NL>くずれそうだよ!<END>
-  en: ''
+  en: The viaduct is about to collapse! Hurry across before it falls!
 - addr: '0x65DF'
   rom: '0x4A5DF'
   len: 51
   ids: [129]
   jp: まってー、トーマス!<NL>やっとおいついたわ<PAGE>この にもつもいっしょに<NL>とどけてくれないかしら<END>
-  en: ''
+  en: Wait, Thomas! I've caught up at last!<PAGE>Could you deliver this parcel too?
 - addr: '0x6612'
   rom: '0x4A612'
   len: 43
   ids: [130]
   jp: つみわすれのにもつだね<PAGE>ありがとうキャロライン<NL>あとは ぼくにまかせて!<END>
-  en: ''
+  en: Someone forgot to load it!<PAGE>Thanks, Caroline. Leave the rest to me!
 - addr: '0x663D'
   rom: '0x4A63D'
   len: 53
   ids: [131]
   jp: おまちどうさま、<NL>これでじかんどおりに<PAGE>ゆうびんを<NL>はいたつすることが<NL>できるね<END>
-  en: ''
+  en: Sorry to keep you waiting!<PAGE>Now the mail will go out on time!
 - addr: '0x6672'
   rom: '0x4A672'
   len: 49
   ids: [132]
   jp: ありがとう、トーマス<PAGE>じかんどおりに<NL>はこぶことができて<NL>ゆうしゅうだな!<END>
-  en: ''
+  en: Thank you, Thomas!<PAGE>Right on time! Splendid work!
 - addr: '0x66A3'
   rom: '0x4A6A3'
   len: 39
   ids: [133]
   jp: このゆうびんかしゃを<NL>つぎのえきまで<NL>とどければいいんだね<END>
-  en: ''
+  en: So I just take this {mailvan} to the next station!
 - addr: '0x66CA'
   rom: '0x4A6CA'
   len: 48
   ids: [134]
   jp: あっ!<NL>トーマスだ!<PAGE>あうことができて<NL>うれしいな<PAGE>おしごとがんばってね<END>
-  en: ''
+  en: Oh! It's Thomas!<PAGE>I'm so happy to see you!<PAGE>Good luck with your work!
 - addr: '0x66FA'
   rom: '0x4A6FA'
   len: 56
   ids: [135, 136, 137, 138, 139, 140, 141]
   jp: みなとのほうは、あらしの<NL>ひがいがすくなかったが、<PAGE>ねんのため<NL>せんろのてんけんを<NL>たのむぞ<END>
-  en: ''
+  en: The storm didn't do much damage at the {harbour|harbor},<PAGE>but please check the tracks there, just in case.
 - addr: '0x6732'
   rom: '0x4A732'
   len: 40
   ids: [142]
   jp: わかりました<PAGE>たのしみだな、<NL>みなとへいくことが<NL>できるなんて!<END>
-  en: ''
+  en: Yes, sir!<PAGE>Hooray! I get to go to the {harbour|harbor}!
 - addr: '0x675A'
   rom: '0x4A75A'
   len: 23
   ids: [143]
   jp: みなとは<NL>うみのほうだぞ<NL>トーマス<END>
-  en: ''
+  en: The {harbour|harbor} is down by the sea, Thomas!
 - addr: '0x6771'
   rom: '0x4A771'
   len: 21
   ids: [144]
   jp: りょうかい!<NL>しゅっぱつしんこう!<END>
-  en: ''
+  en: Right! Full steam ahead!
 - addr: '0x6786'
   rom: '0x4A786'
   len: 50
   ids: [145]
   jp: パーシーがみなとで<NL>かしゃとおおげんかさ!<PAGE>みなとのかしゃおきばに<NL>いってみなよ<END>
-  en: ''
+  en: Percy's having {a big row|a big fight} with the {trucks} at the {harbour|harbor}!<PAGE>Go and see the yard down there!
 - addr: '0x67B8'
   rom: '0x4A7B8'
   len: 50
   ids: [146]
   jp: パーシーがみなとで<NL>かしゃとおおげんかさ!<PAGE>みなとのかしゃおきばに<NL>いってみなよ<END>
-  en: ''
+  en: Percy's having {a big row|a big fight} with the {trucks} at the {harbour|harbor}!<PAGE>Go and see the yard down there!
 - addr: '0x67EA'
   rom: '0x4A7EA'
   len: 26
   ids: [147]
   jp: パーシーにつながれるのは<NL>やーだーよー♪<END>
-  en: ''
+  en: We won't be coupled to Percy! No-o-o way! ♪
 - addr: '0x6804'
   rom: '0x4A804'
   len: 18
   ids: [148]
   jp: もう、<NL>うるさいやつらだなぁ<END>
-  en: ''
+  en: Oh, you noisy lot!
 - addr: '0x6816'
   rom: '0x4A816'
   len: 22
   ids: [149, 150]
   jp: もうかしゃのあいてなんか<NL>したくないよ<END>
-  en: ''
+  en: I don't want to deal with {trucks} any more!
 - addr: '0x682C'
   rom: '0x4A82C'
   len: 41
   ids: [151]
   jp: ぎょうぎのわるい<NL>かしゃたちなんか<PAGE>さっさと<NL>つなげてしまおうよ!<END>
-  en: ''
+  en: Let's just couple up those badly behaved {trucks}!
 - addr: '0x6855'
   rom: '0x4A855'
   len: 54
   ids: [152]
   jp: トーマス、<PAGE>ダグラスとドナルドを<NL>てつだってやって<NL>くれないか<PAGE>みなとにいるはずだ<END>
-  en: ''
+  en: Thomas,<PAGE>could you go and help Donald and Douglas?<PAGE>They should be at the {harbour|harbor}.
 - addr: '0x688B'
   rom: '0x4A88B'
   len: 30
   ids: [153]
   jp: まかせてください<NL>きっとちからに<NL>なってみせます!<END>
-  en: ''
+  en: Leave it to me! I'll be a real help!
 - addr: '0x68A9'
   rom: '0x4A8A9'
   len: 43
   ids: [154]
   jp: かしゃに<NL>からかわれないように<NL>するには<PAGE>がつんといってやる<NL>ことだね<END>
-  en: ''
+  en: To stop the {trucks} teasing you,<PAGE>you have to be firm with them!
 - addr: '0x68D4'
   rom: '0x4A8D4'
   len: 42
   ids: [155]
   jp: ありがとうトーマス<PAGE>これでしばらくは<NL>かしゃたちも<NL>おとなしくなるよ<END>
-  en: ''
+  en: Thanks, Thomas!<PAGE>That'll keep the {trucks} quiet for a while!
 - addr: '0x68FE'
   rom: '0x4A8FE'
   len: 28
   ids: [156]
   jp: きょうは<NL>せんろのてんけんかい?<NL>ごくろうさん<END>
-  en: ''
+  en: Checking the tracks today? Good work!
 - addr: '0x691A'
   rom: '0x4A91A'
   len: 38
   ids: [157]
   jp: こんにちは、トーマス<NL>かしゃをはこぶのを<NL>てつだってくれないか?<END>
-  en: ''
+  en: Hello, Thomas! Could you help me move these {trucks}?
 - addr: '0x6940'
   rom: '0x4A940'
   len: 37
   ids: [158]
   jp: ぼくはキャタピラだから<NL>どんなところでも<NL>はしれるのさ!<END>
-  en: ''
+  en: I've got caterpillar tracks, so I can go anywhere!
 - addr: '0x6965'
   rom: '0x4A965'
   len: 30
   ids: [159]
   jp: へぇー、<NL>キャタピラって<NL>とってもべんりだね!<END>
-  en: ''
+  en: Wow! Caterpillar tracks are really handy!
 - addr: '0x6983'
   rom: '0x4A983'
   len: 21
   ids: [160]
   jp: ここはおれさまの<NL>とおりみちだぞ<END>
-  en: ''
+  en: This is MY road!
 - addr: '0x6998'
   rom: '0x4A998'
   len: 42
   ids: [161]
   jp: なぁ、トーマス<PAGE>おれより<NL>はやいきかんしゃなんて、<NL>このしまにはいないよな<END>
-  en: ''
+  en: Hey, Thomas.<PAGE>There's nobody on this island faster than me, is there?
 - addr: '0x69C2'
   rom: '0x4A9C2'
   len: 34
   ids: [162]
   jp: いくらおまえさんでも<NL>このおれさまに<NL>かなうはずはないな<END>
-  en: ''
+  en: Even you could never beat me!
 - addr: '0x69E4'
   rom: '0x4A9E4'
   len: 24
   ids: [163]
   jp: そんなにいうなら<NL>きょうそうしてみるかい?<END>
-  en: ''
+  en: If you're so sure, shall we have a race?
 - addr: '0x69FC'
   rom: '0x4A9FC'
   len: 31
   ids: [164]
   jp: ようし、おれさまに<NL>かてるとおもうのか!?<NL>トーマス!<END>
-  en: ''
+  en: Ha! You think you can beat me, Thomas?!
 - addr: '0x6A1B'
   rom: '0x4AA1B'
   len: 59
   ids: [165]
   jp: かしゃのゆそうを<NL>てつだってくれて<NL>ありがとう トーマス<PAGE>ほかのきかんしゃに<NL>かわって<NL>れいをいうよ<END>
-  en: ''
+  en: Thank you for helping move the {trucks}, Thomas.<PAGE>I'll thank you for all the other engines too.
 - addr: '0x6A56'
   rom: '0x4AA56'
   len: 43
   ids: [166]
   jp: ぼくは みんなに<NL>よろこんでもらえるのが<PAGE>とっても<NL>うれしいんです!<END>
-  en: ''
+  en: Making everyone happy<PAGE>makes me really happy too!
 - addr: '0x6A81'
   rom: '0x4AA81'
   len: 80
   ids: [167, 168, 169, 170, 171]
   jp: こうざんでは あらしの<NL>ひがいがおおきかった<PAGE>せんろがとぎれて<NL>とりのこされた<PAGE>きかんしゃが<NL>いるかもしれん<PAGE>トーマスみてきてくれ<END>
-  en: ''
+  en: The storm did a lot of damage on the mountain.<PAGE>The line is cut off there,<PAGE>and an engine may be stranded.<PAGE>Thomas, go and take a look.
 - addr: '0x6AD1'
   rom: '0x4AAD1'
   len: 22
   ids: [172]
   jp: わかりました<NL>ちょうさにいってきます!<END>
-  en: ''
+  en: Yes, sir! I'll go and find out!
 - addr: '0x6AE7'
   rom: '0x4AAE7'
   len: 33
   ids: [173]
   jp: トーマス!<NL>こうざんはこっちの<NL>ほうがくじゃないぞ<END>
-  en: ''
+  en: Thomas! The mountain isn't this way!
 - addr: '0x6B08'
   rom: '0x4AB08'
   len: 51
   ids: [174]
   jp: こうざんのほうに<NL>まっくろいくもが<NL>みえるなぁ・・・<PAGE>こりゃあ<NL>ひとあめきそうだぞ<END>
-  en: ''
+  en: There are big black clouds over the mountain...<PAGE>Looks like it's going to rain!
 - addr: '0x6B3B'
   rom: '0x4AB3B'
   len: 12
   ids: [175]
   jp: あっ!かみなりだ!<END>
-  en: ''
+  en: Oh! Thunder!
 - addr: '0x6B47'
   rom: '0x4AB47'
   len: 69
   ids: [176, 177, 178]
   jp: きいたかい? トビーが<NL>タンクのみずがなくなって<NL>うごけなくなったってさ!<PAGE>はっはっは!<NL>ドジなやつだよなぁー<END>
-  en: ''
+  en: Did you hear? Toby ran out of water and got stuck!<PAGE>Ha ha ha! What a silly engine!
 - addr: '0x6B8C'
   rom: '0x4AB8C'
   len: 47
   ids: [179]
   jp: そんなにわらうなよ<NL>ジェームス<PAGE>きみだって<NL>しっぱいすることは<NL>あるだろ?<END>
-  en: ''
+  en: Don't laugh, James!<PAGE>You make mistakes too, don't you?
 - addr: '0x6BBB'
   rom: '0x4ABBB'
   len: 44
   ids: [180]
   jp: こうざんは<PAGE>さっきのぶんきを<NL>はんたいのほうにいった<NL>ところかもしれないな<END>
-  en: ''
+  en: The mountain<PAGE>might be the other way at that junction back there.
 - addr: '0x6BE7'
   rom: '0x4ABE7'
   len: 51
   ids: [181]
   jp: こうざんへいくとちゅうで<PAGE>タンクのみずがなくなって<NL>うごけなく<NL>なっちゃったんだ<END>
-  en: ''
+  en: On my way to the mountain,<PAGE>my tank ran dry and I couldn't move!
 - addr: '0x6C1A'
   rom: '0x4AC1A'
   len: 48
   ids: [182]
   jp: ぼくがきたからには<NL>もうあんしん!<PAGE>きゅうすいとうまで<NL>おしていってあげるよ!<END>
-  en: ''
+  en: Don't worry, I'm here now!<PAGE>I'll push you to the water tower!
 - addr: '0x6C4A'
   rom: '0x4AC4A'
   len: 33
   ids: [183]
   jp: よいしょよいしょ・・・<NL>やっときゅうすいとうに<NL>ついたよ!<END>
-  en: ''
+  en: Heave-ho, heave-ho... We made it to the water tower!
 - addr: '0x6C6B'
   rom: '0x4AC6B'
   len: 76
   ids: [184]
   jp: ありがとうトーマス<NL>たすかったよ・・・<PAGE>こうざんはこのさきを<NL>のぼっていったところだよ<PAGE>ぼくはひとあしさきに<NL>こうざんへいくね<END>
-  en: ''
+  en: Thanks, Thomas! You saved me...<PAGE>The mountain is up this line.<PAGE>I'll go on ahead!
 - addr: '0x6CB7'
   rom: '0x4ACB7'
   len: 38
   ids: [185, 186]
   jp: せんろがこわれているよ<NL>おねがいトーマス<NL>なおしてくれないかい?<END>
-  en: ''
+  en: The track is broken! Please, Thomas, could you fix it?
 - addr: '0x6CDD'
   rom: '0x4ACDD'
   len: 38
   ids: [187, 188]
   jp: せんろがこわれているよ<NL>おねがいトーマス<NL>なおしてくれないかい?<END>
-  en: ''
+  en: The track is broken! Please, Thomas, could you fix it?
 - addr: '0x6D03'
   rom: '0x4AD03'
   len: 27
   ids: [189, 190]
   jp: あらしのあめで<NL>ダムがぞうすいしてるよ!<END>
-  en: ''
+  en: The storm has flooded the dam!
 - addr: '0x6D1E'
   rom: '0x4AD1E'
   len: 26
   ids: [191]
   jp: はやくわたらないと<NL>ダムがこわれそうだ!<END>
-  en: ''
+  en: Hurry across before the dam bursts!
 - addr: '0x6D38'
   rom: '0x4AD38'
   len: 41
   ids: [192]
   jp: あいにくだが<PAGE>こっちのせんろは<NL>こうざんには<NL>つながってないぜ<END>
-  en: ''
+  en: Sorry, but this line doesn't go to the mountain.
 - addr: '0x6D61'
   rom: '0x4AD61'
   len: 32
   ids: [193]
   jp: このさきが<NL>こうざんだよ<PAGE>きをつけてね<NL>トーマス<END>
-  en: ''
+  en: The mountain is just ahead.<PAGE>Be careful, Thomas!
 - addr: '0x6D81'
   rom: '0x4AD81'
   len: 25
   ids: [194]
   jp: トビー<NL>あんないしてくれて<NL>ありがとう<END>
-  en: ''
+  en: Thanks for showing me the way, Toby!
 - addr: '0x6D9A'
   rom: '0x4AD9A'
   len: 27
   ids: [195]
   jp: おおトーマスじゃないか<NL>やっとたすけがきた!<END>
-  en: ''
+  en: Oh, Thomas! Help at last!
 - addr: '0x6DB5'
   rom: '0x4ADB5'
   len: 31
   ids: [196]
   jp: こわれたせんろは<NL>なおしてきたから<NL>もうあんしんだよ<END>
-  en: ''
+  en: I've fixed the broken track, so you'll be fine now!
 - addr: '0x6DD4'
   rom: '0x4ADD4'
   len: 24
   ids: [197]
   jp: ありがとうトーマス<NL>これでかえれるよ!<END>
-  en: ''
+  en: Thank you, Thomas! Now I can go home!
 - addr: '0x6DEC'
   rom: '0x4ADEC'
   len: 15
   ids: [198]
   jp: なんだなんだ・・・!?<END>
-  en: ''
+  en: What's that...?!
 - addr: '0x6DFB'
   rom: '0x4ADFB'
   len: 55
   ids: [199]
   jp: ぼくはステップニー<PAGE>みつけてくれてありがとう<NL>いわがくずれてきて<NL>うもれてしまったんだよ<END>
-  en: ''
+  en: I'm Stepney!<PAGE>Thank you for finding me! Some rocks fell and buried me!
 - addr: '0x6E32'
   rom: '0x4AE32'
   len: 94
   ids: [200, 201]
   jp: いままでせんろのしゅうり<NL>ごくろう<PAGE>きみが<NL>がんばってくれたおかげで<NL>ほんとうにたすかった<PAGE>あとはおおきなまちの<NL>てんけんだけだ<PAGE>よろしくたのんだぞ<END>
-  en: ''
+  en: Well done fixing all those tracks.<PAGE>Your hard work has been a great help.<PAGE>All that's left is to check the big town.<PAGE>I'm counting on you!
 - addr: '0x6E90'
   rom: '0x4AE90'
   len: 29
   ids: [202]
   jp: あともうひといきですね<NL>よーし、がんばるぞ!<END>
-  en: ''
+  en: Nearly there! Right, here I go!
 - addr: '0x6EAD'
   rom: '0x4AEAD'
   len: 34
   ids: [203]
   jp: さいごは<NL>このまちのてんけんだ<PAGE>がんばろう、トーマス<END>
-  en: ''
+  en: Last of all, we check this town!<PAGE>Come on, Thomas!
 - addr: '0x6ECF'
   rom: '0x4AECF'
   len: 45
   ids: [204]
   jp: あぁ・・・<PAGE>なんだか<NL>あめがふってきそうなんだ<NL>しゅっぱつしたくないよう<END>
-  en: ''
+  en: Oh dear...<PAGE>I think it's going to rain. I don't want to go out!
 - addr: '0x6EFC'
   rom: '0x4AEFC'
   len: 52
   ids: [205]
   jp: ヘンリー、<NL>もっとげんきをだしなよ<PAGE>ほうら<NL>ゆうきをだして<NL>しゅっぱつしてごらん!<END>
-  en: ''
+  en: Cheer up, Henry!<PAGE>Come on, be brave and set off!
 - addr: '0x6F30'
   rom: '0x4AF30'
   len: 36
   ids: [206]
   jp: えきの<NL>おきゃくさんを<PAGE>おおきなまちに<NL>つれていってあげてよ<END>
-  en: ''
+  en: Please take the passengers at the station<PAGE>to the big town!
 - addr: '0x6F54'
   rom: '0x4AF54'
   len: 37
   ids: [207]
   jp: よぉ、トーマスじゃないか<PAGE>あいにくだが<NL>ここはとおさないぜ<END>
-  en: ''
+  en: Well, if it isn't Thomas.<PAGE>Sorry, but you're not getting through here.
 - addr: '0x6F79'
   rom: '0x4AF79'
   len: 62
   ids: [208]
   jp: ねぇ、トーマス、<PAGE>おおきなまちまで<NL>つれていって<NL>くれないかしら?<PAGE>おともだちとあう<NL>やくそくをしているの<END>
-  en: ''
+  en: Excuse me, Thomas,<PAGE>could you take me to the big town?<PAGE>I promised to meet my friends there.
 - addr: '0x6FB7'
   rom: '0x4AFB7'
   len: 37
   ids: [209]
   jp: ようしわかったよ、<NL>さあぼくにのって!<NL>しゅっぱつしんこうー!<END>
-  en: ''
+  en: All right! Hop aboard! Off we go!
 - addr: '0x6FDC'
   rom: '0x4AFDC'
   len: 54
   ids: [210]
   jp: トーマス、<NL>さっきはありがとう<PAGE>おかげで<NL>じかんどおりにえきに<NL>つくことができたよ<END>
-  en: ''
+  en: Thomas, thanks for earlier!<PAGE>Because of you, I got to the station on time.
 - addr: '0x7012'
   rom: '0x4B012'
   len: 21
   ids: [211]
   jp: このはしをわたったら<NL>おおきなまちね<END>
-  en: ''
+  en: Over this bridge is the big town!
 - addr: '0x7027'
   rom: '0x4B027'
   len: 28
   ids: [212]
   jp: そうだね<NL>とっても<NL>たのしみだなぁー・・・!<END>
-  en: ''
+  en: That's right! I can't wait!
 - addr: '0x7043'
   rom: '0x4B043'
   len: 46
   ids: [213]
   jp: こんにちは、トーマス<PAGE>ぼくはベン!<NL>かしゃをはこぶしごとを<NL>しているんだ<END>
-  en: ''
+  en: Hello, Thomas!<PAGE>I'm Ben! I move the {trucks} around.
 - addr: '0x7071'
   rom: '0x4B071'
   len: 59
   ids: [214, 215]
   jp: ぼくのなまえはビル!<NL>ここでかしゃのせいりを<NL>しているんだ<PAGE>あーいそがしい、<NL>いそがしい・・・<END>
-  en: ''
+  en: My name's Bill! I sort the {trucks} here.<PAGE>Oh, so busy, so busy...
 - addr: '0x70AC'
   rom: '0x4B0AC'
   len: 45
   ids: [216, 217]
   jp: わたしは あまり<NL>うしがすきでないのよっ<PAGE>ちかづけないで<NL>ちょうだい!<END>
-  en: ''
+  en: I don't much care for cows!<PAGE>Keep them away from me!
 - addr: '0x70D9'
   rom: '0x4B0D9'
   len: 34
   ids: [218]
   jp: うしさんを<NL>きらいだなんて・・・<NL>かわったきかんしゃだね<END>
-  en: ''
+  en: Doesn't like cows? What a funny engine!
 - addr: '0x70FB'
   rom: '0x4B0FB'
   len: 56
   ids: [219]
   jp: ディーゼルのやつが<NL>じゃまをしていて<NL>えきへはいれないんだよ<PAGE>まったく<NL>こまったやつだな<END>
-  en: ''
+  en: Diesel is in the way, so I can't get into the station!<PAGE>What a nuisance he is!
 - addr: '0x7133'
   rom: '0x4B133'
   len: 39
   ids: [220]
   jp: なんだって!?<PAGE>おきゃくさんを<NL>はこばなければ<NL>ならないのに!<END>
-  en: ''
+  en: What?!<PAGE>But I have passengers to carry!
 - addr: '0x715A'
   rom: '0x4B15A'
   len: 30
   ids: [221]
   jp: まったくディーゼルには<NL>へんなやつがおおいよなぁ<END>
-  en: ''
+  en: There sure are some strange diesels around...
 - addr: '0x7178'
   rom: '0x4B178'
   len: 30
   ids: [222]
   jp: そこをどいてくれないかな?<NL>えきにはいらせてくれよ!<END>
-  en: ''
+  en: Could you move, please? Let me into the station!
 - addr: '0x7196'
   rom: '0x4B196'
   len: 58
   ids: [223]
   jp: いやだね・・・<PAGE>これからは<NL>ディーゼルのじだいさ<PAGE>おまえみたいなポンコツは<NL>おうちへかえりな<END>
-  en: ''
+  en: No way...<PAGE>Diesels are the future.<PAGE>{Old crocks|Old rust buckets} like you should just go home!
 - addr: '0x71D0'
   rom: '0x4B1D0'
   len: 58
   ids: [224]
   jp: そんなところで<NL>けんかしないでよ<PAGE>どうしても、<NL>けんかするっていうなら<NL>きょうそうできめれば?<END>
-  en: ''
+  en: Stop squabbling there!<PAGE>If you must fight, why not settle it with a race?
 - addr: '0x720A'
   rom: '0x4B20A'
   len: 28
   ids: [225]
   jp: ようし、<NL>ディーゼルなんかに<NL>まけるもんか!<END>
-  en: ''
+  en: Right! I won't lose to a diesel!
 - addr: '0x7226'
   rom: '0x4B226'
   len: 35
   ids: [226, 227]
   jp: みんなのために<NL>はたらくのって<PAGE>とてもきもちの<NL>いいことよね<END>
-  en: ''
+  en: Working for everyone<PAGE>feels really nice, doesn't it?
 - addr: '0x7249'
   rom: '0x4B249'
   len: 23
   ids: [228]
   jp: さあ、ついたよ、<NL>ちいさなおきゃくさん!<END>
-  en: ''
+  en: Here we are, little passenger!
 - addr: '0x7260'
   rom: '0x4B260'
   len: 37
   ids: [229]
   jp: ありがとうトーマス、<NL>これからもみんなのために<NL>がんばってね<END>
-  en: ''
+  en: Thank you, Thomas! Keep working hard for everyone!
 - addr: '0x7285'
   rom: '0x4B285'
   len: 47
   ids: [230, 231, 232, 233, 234, 235]
   jp: おきゃくさんに<NL>よろこんでもらうのが<PAGE>きかんしゃの<NL>いちばんのよろこびだな<END>
-  en: ''
+  en: Making passengers happy<PAGE>is an engine's greatest joy!
 - addr: '0x72B4'
   rom: '0x4B2B4'
   len: 48
   ids: [236]
   jp: そうですね、きょくちょう<PAGE>おきゃくさんが<NL>よろこぶと<NL>ぼくもうれしいんです!<END>
-  en: ''
+  en: Yes, sir!<PAGE>When the passengers are happy, I'm happy too!
 - addr: '0x72E4'
   rom: '0x4B2E4'
   len: 68
   ids: [237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250]
   jp: よくやったなトーマス<PAGE>きみのかつやくで<NL>こわれたせんろが<NL>もとどおりになった<PAGE>これで みんなも<NL>よろこぶだろう<END>
-  en: ''
+  en: Well done, Thomas!<PAGE>Thanks to you, the broken tracks are all mended!<PAGE>Everyone will be very pleased.
 - addr: '0x7328'
   rom: '0x4B328'
   len: 54
   ids: [251]
   jp: ありがとうございます!<PAGE>これからも みんなに<NL>よろこんでもらえるように<NL>がんばります!<END>
-  en: ''
+  en: Thank you, sir!<PAGE>I'll keep working hard to make everyone happy!
 - addr: '0x735E'
   rom: '0x4B35E'
   len: 20
   ids: [252]
   jp: このおはなしの<NL>しゅつえんは・・・<END>
-  en: ''
+  en: Starring in this story...
 - addr: '0x7372'
   rom: '0x4B372'
   len: 0

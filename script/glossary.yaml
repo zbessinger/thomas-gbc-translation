@@ -1,0 +1,9 @@
+# UK/US dub wording. Use {token} in script/dialogue.yaml; {Token} capitalises the first letter.
+# One-off differences can be written inline as {uk wording|us wording}.
+fc:        {uk: the Fat Controller, us: Sir Topham Hatt}
+truck:     {uk: truck,              us: freight car}
+trucks:    {uk: trucks,             us: freight cars}
+mailvan:   {uk: mail van,           us: mail car}
+mailvans:  {uk: mail vans,          us: mail cars}
+crossing:  {uk: level crossing,     us: railroad crossing}
+railway:   {uk: railway,            us: railway}

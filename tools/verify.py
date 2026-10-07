@@ -41,5 +41,7 @@ def patches(clean, built, ips, bps):
 
 if __name__ == "__main__":
     ok = roundtrip("rom/thomas-jp.gbc", "script/dialogue.yaml")
-    ok &= patches("rom/thomas-jp.gbc", "out/thomas-en.gbc", "out/thomas-en.ips", "out/thomas-en.bps")
+    for dub in sys.argv[1:] or ["uk", "us"]:
+        base = f"out/thomas-en-{dub}"
+        ok &= patches("rom/thomas-jp.gbc", f"{base}.gbc", f"{base}.ips", f"{base}.bps")
     sys.exit(0 if ok else 1)

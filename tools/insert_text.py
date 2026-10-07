@@ -8,6 +8,7 @@ Untranslated entries keep a short placeholder so the game stays playable.
 """
 import argparse
 import hashlib
+import re
 import sys
 from pathlib import Path
 
@@ -24,9 +25,18 @@ MAX_GLYPHS = 0x100 - 0xA7     # VRAM slots the loader can allocate per message (
 FIRST_CODE = 0x0B             # first code reused for English glyphs (after space + digits)
 RESERVED = {0x79, 0x7A}       # mark codes: the printer draws them on the row above
 
-# Text starts at screen column 2. Lines 1-2 may use 17 columns; the last line of a page
-# stops at 15 because the blinking "next" arrow sprite covers columns 17-18 of that row.
-DEFAULT_WIDTHS = [17, 17, 15]
+# Text box layouts (measured in-game). `widths` = max chars per line on one page.
+#  dialogue    story box, text from column 2; the blinking "next" arrow covers columns
+#              17-18 of the third row, so that line stops at 15. Pages allowed.
+#  zukan       encyclopedia entry box (column 8-18). FF 01 pages HANG this printer.
+#  zukan_intro encyclopedia intro box (column 2-17).
+#  system      framed menu-message box; lines are centred like the Japanese.
+BOXES = {
+    "dialogue":    {"widths": [17, 17, 15], "pages": True,  "center": False},
+    "zukan":       {"widths": [11, 11, 11, 11], "pages": False, "center": False},
+    "zukan_intro": {"widths": [16, 16, 16], "pages": False, "center": False},
+    "system":      {"widths": [16, 16, 16], "pages": False, "center": True},
+}
 
 
 # ---------------------------------------------------------------- font
@@ -135,26 +145,67 @@ def encode_pages(pages, table):
     return bytes(out)
 
 
+# ---------------------------------------------------------------- dubs
+
+DUBS = ("uk", "us")
+_VARIANT = re.compile(r"\{([^{}|]+)\|([^{}|]*)\}|\{(\w+)\}")
+
+
+def resolve(text, dub, glossary):
+    """Pick the UK or US wording: `{uk|us}` inline, or `{token}` from script/glossary.yaml.
+    A token written with a capital first letter ({Trucks}) is capitalised."""
+    def sub(m):
+        if m.group(3) is None:
+            return m.group(1) if dub == "uk" else m.group(2)
+        key = m.group(3)
+        if key in glossary:
+            return glossary[key][dub]
+        if key.lower() in glossary:  # {Trucks} -> capitalised form of {trucks}
+            word = glossary[key.lower()][dub]
+            return word[0].upper() + word[1:]
+        raise ValueError(f"unknown glossary token {{{key}}}")
+    return _VARIANT.sub(sub, text)
+
+
 # ---------------------------------------------------------------- build
 
-def build(rom, entries, glyphs, check_only=False):
+def build(rom, entries, glyphs, dub="uk", glossary=None):
     table = build_table(glyphs)
     rom = bytearray(rom)
     errors, blobs = [], []
+    glossary = glossary or {}
 
     for e in entries:
-        en = (e.get("en") or "").strip()
+        try:
+            en = resolve((e.get("en") or "").strip(), dub, glossary)
+        except ValueError as exc:
+            errors.append(f"{e['addr']}: {exc}")
+            continue
         if e["len"] == 0:                 # unused slot (ids 253-255)
             blobs.append((e, None))
             continue
         if not en:
-            en = "..." if e["jp"] == "<END>" else f"(untranslated {e['addr']})"
-        widths = e.get("widths", DEFAULT_WIDTHS)
+            en = "..." if e["jp"] == "<END>" else "TODO"
+        box = BOXES[e.get("box", "dialogue")]
+        widths = e.get("widths", box["widths"])
         try:
-            pages = wrap(en, widths) if e["jp"] != "<END>" else []
+            if e["jp"] == "<END>":
+                pages = []
+            elif e.get("raw"):          # exact spacing, e.g. the Yes/No prompt
+                pages = [en.split("\n")]
+                for line in pages[0]:
+                    if len(line) > max(widths):
+                        raise ValueError(f"raw line too long: {line!r}")
+            else:
+                pages = wrap(en, widths)
+            if len(pages) > 1 and not box["pages"]:
+                raise ValueError(f"{len(pages)} pages, but the {e.get('box')} box cannot page "
+                                 f"(max {len(widths)} lines of {widths[0]})")
+            if box["center"] and not e.get("raw"):
+                pages = [[l.center(widths[i]).rstrip() for i, l in enumerate(pg)] for pg in pages]
             blob = encode_pages(pages, table) if pages else b"\xff\x02"
         except ValueError as exc:
-            errors.append(f"{e['addr']}: {exc}")
+            errors.append(f"{e['addr']} [{dub}]: {exc}")
             continue
         uniq = len(set(b for b in blob if b != 0xFF) | {0})
         if uniq > MAX_GLYPHS:
@@ -195,7 +246,9 @@ def main():
     ap.add_argument("--rom", default="rom/thomas-jp.gbc")
     ap.add_argument("--script", default="script/dialogue.yaml")
     ap.add_argument("--font", default="gfx/font_en.txt")
-    ap.add_argument("--out", default="out/thomas-en.gbc")
+    ap.add_argument("--glossary", default="script/glossary.yaml")
+    ap.add_argument("--dub", choices=DUBS + ("all",), default="all")
+    ap.add_argument("--out", default="out/thomas-en-{dub}.gbc", help="{dub} is substituted")
     ap.add_argument("--check", action="store_true", help="validate only, do not write")
     args = ap.parse_args()
 
@@ -203,17 +256,23 @@ def main():
     if hashlib.sha1(rom).hexdigest() != CLEAN_SHA1:
         sys.exit(f"{args.rom} is not the expected clean ROM (SHA-1 {CLEAN_SHA1})")
     entries = yaml.safe_load(Path(args.script).read_text())
-    out, errors, used, budget = build(rom, entries, load_font(args.font))
+    glossary = yaml.safe_load(Path(args.glossary).read_text()) or {}
+    glyphs = load_font(args.font)
     done = sum(1 for e in entries if (e.get("en") or "").strip())
-    print(f"translated {done}/{len(entries)} messages; script {used}/{budget} bytes ({100 * used // budget}%)")
-    for err in errors:
-        print("ERROR", err)
-    if errors:
-        sys.exit(1)
-    if not args.check:
-        Path(args.out).parent.mkdir(exist_ok=True)
-        Path(args.out).write_bytes(out)
-        print("wrote", args.out)
+    print(f"translated {done}/{len(entries)} messages")
+    failed = False
+    for dub in (DUBS if args.dub == "all" else (args.dub,)):
+        out, errors, used, budget = build(rom, entries, glyphs, dub, glossary)
+        print(f"[{dub}] script {used}/{budget} bytes ({100 * used // budget}%)")
+        for err in errors:
+            print("ERROR", err)
+        failed |= bool(errors)
+        if not errors and not args.check:
+            path = Path(args.out.format(dub=dub))
+            path.parent.mkdir(exist_ok=True)
+            path.write_bytes(out)
+            print("wrote", path)
+    sys.exit(1 if failed else 0)
 
 
 if __name__ == "__main__":

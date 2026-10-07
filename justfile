@@ -1,7 +1,7 @@
 # Kikansha Thomas – Sodor-tou no Nakama-tachi (GBC) English translation
 
 rom := "rom/thomas-jp.gbc"
-out := "out/thomas-en.gbc"
+dubs := "uk us"
 flips := "vendor/flips/flips"
 
 # list recipes
@@ -23,16 +23,19 @@ dump:
 check:
     uv run python tools/insert_text.py --check
 
-# build the English ROM and fix its checksums
+# build out/thomas-en-uk.gbc and out/thomas-en-us.gbc and fix their checksums
 build:
-    uv run python tools/insert_text.py --rom {{rom}} --out {{out}}
-    rgbfix -v {{out}}
+    uv run python tools/insert_text.py --rom {{rom}} --out "out/thomas-en-{dub}.gbc"
+    for d in {{dubs}}; do rgbfix -v -Wno-overwrite out/thomas-en-$d.gbc; done
 
-# create IPS + BPS patches against the clean ROM
+# create IPS + BPS patches (one pair per dub) against the clean ROM
 patch: build
-    {{flips}} --create --ips {{rom}} {{out}} out/thomas-en.ips
-    {{flips}} --create --bps {{rom}} {{out}} out/thomas-en.bps
+    for d in {{dubs}}; do {{flips}} --create --ips {{rom}} out/thomas-en-$d.gbc out/thomas-en-$d.ips; {{flips}} --create --bps {{rom}} out/thomas-en-$d.gbc out/thomas-en-$d.bps; done
 
-# round-trip the JP script and confirm both patches reproduce the built ROM
+# round-trip the JP script and confirm every patch reproduces its built ROM
 verify: patch
-    uv run python tools/verify.py
+    uv run python tools/verify.py {{dubs}}
+
+# side-by-side JP / UK / US review sheet (script/review.md)
+review:
+    uv run python tools/review.py

@@ -51,7 +51,7 @@ if __name__ == "__main__":
     if out.exists():  # keep translations and per-message layout overrides
         old = {e["addr"]: e for e in yaml.safe_load(out.read_text()) or []}
         for e in entries:
-            for key in ("en", "widths", "notes"):
+            for key in ("en", "box", "raw", "widths", "notes"):
                 if key in old.get(e["addr"], {}):
                     e[key] = old[e["addr"]][key]
     out.write_text(yaml.dump(entries, Dumper=_Dumper, allow_unicode=True, sort_keys=False, width=1000, default_flow_style=False))
