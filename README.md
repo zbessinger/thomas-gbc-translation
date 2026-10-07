@@ -164,6 +164,6 @@ section of the justfile).
 
 The tools, scripts, documentation and English translation are [MIT-licensed](LICENSE). Material
 from the original game (Japanese script, original artwork, screenshots) is not covered and belongs
-to its rights holders.
+to its rights holders (see [NOTICE](NOTICE)).
 
 Distribute the patch files only, never the ROM.
