@@ -32,9 +32,10 @@ build:
     uv run python tools/insert_text.py --rom {{rom}} --out "out/thomas-en-{dub}.gbc"
     for d in {{dubs}}; do rgbfix -v -Wno-overwrite out/thomas-en-$d.gbc; done
 
-# create IPS + BPS patches (one pair per dub) against the clean ROM
+# create IPS + BPS patches (one pair per dub) against the clean ROM; copies go to patches/ (committed)
 patch: build
     for d in {{dubs}}; do {{flips}} --create --ips {{rom}} out/thomas-en-$d.gbc out/thomas-en-$d.ips; {{flips}} --create --bps {{rom}} out/thomas-en-$d.gbc out/thomas-en-$d.bps; done
+    mkdir -p patches && cp out/thomas-en-*.ips out/thomas-en-*.bps patches/
 
 # round-trip the JP script and confirm every patch reproduces its built ROM
 verify: patch
