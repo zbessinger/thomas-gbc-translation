@@ -11,14 +11,17 @@ Fan translation of *Kikansha Thomas – Sodor-tou no Nakama-tachi* (Tamasoft, 20
 ```sh
 just setup     # fetch/build Flips + mgbdis, install Python deps
 just check     # validate the English script (line widths, glyph limits, space budget)
-just build     # out/thomas-en.gbc
-just patch     # out/thomas-en.ips + out/thomas-en.bps
-just verify    # JP round-trip + patches reproduce the built ROM
+just build     # out/thomas-en-uk.gbc + out/thomas-en-us.gbc
+just patch     # out/thomas-en-{uk,us}.{ips,bps}
+just verify    # JP round-trip + every patch reproduces its built ROM
+just review    # script/review.md: JP / UK / US side by side, wrapped as in-game
 ```
 
 ## Layout
 - `script/dialogue.yaml` — every message: Japanese (`jp`) and English (`en`). English is plain
   prose; the build word-wraps it. `\n` forces a line break, `<PAGE>` a new text box.
+- `script/glossary.yaml` — UK/US dub wording (`{fc}` → the Fat Controller / Sir Topham Hatt,
+  `{trucks}` → trucks / freight cars …). Inline `{uk|us}` handles one-offs.
 - `gfx/font_en.txt` — editable 8×8 English font.
 - `tools/` — table, dumper, inserter, emulator helpers. `notes/re-notes.md` — ROM internals.
 

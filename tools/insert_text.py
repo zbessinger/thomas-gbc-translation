@@ -131,6 +131,22 @@ def wrap(text, widths):
     return pages
 
 
+def balanced_wrap(text, widths):
+    """Like wrap(), but avoid a lonely last line: for each <PAGE> segment, also try
+    fewer lines per box and keep that layout if it needs no extra boxes."""
+    pages = []
+    for segment in text.split("<PAGE>"):
+        best = wrap(segment, widths)
+        for k in range(len(widths) - 1, 1, -1):
+            if len(best) < 2 or len(best[-1]) > 1:
+                break
+            alt = wrap(segment, widths[:k])
+            if len(alt) == len(best):
+                best = alt
+        pages += best
+    return pages
+
+
 def encode_pages(pages, table):
     out = bytearray()
     for pi, page in enumerate(pages):
@@ -196,6 +212,8 @@ def build(rom, entries, glyphs, dub="uk", glossary=None):
                 for line in pages[0]:
                     if len(line) > max(widths):
                         raise ValueError(f"raw line too long: {line!r}")
+            elif box["pages"]:
+                pages = balanced_wrap(en, widths)
             else:
                 pages = wrap(en, widths)
             if len(pages) > 1 and not box["pages"]:

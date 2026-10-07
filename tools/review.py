@@ -6,13 +6,15 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).parent))
-from insert_text import BOXES, resolve, wrap
+from insert_text import BOXES, balanced_wrap, resolve, wrap
 
 
 def layout(text, entry):
     box = BOXES[entry.get("box", "dialogue")]
     if entry.get("raw"):
         pages = [text.split("\n")]
+    elif box["pages"]:
+        pages = balanced_wrap(text, entry.get("widths", box["widths"]))
     else:
         pages = wrap(text, entry.get("widths", box["widths"]))
     return " ▼ ".join(" / ".join(p) for p in pages)
